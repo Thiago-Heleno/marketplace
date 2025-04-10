@@ -1,74 +1,71 @@
 # Active Context: Multi-Vendor Marketplace
 
-## Current Work Focus
+**Version:** 1.5
+**Date:** 01/04/2025
+**Based on:** `projectbrief.md` v1.0
 
-The project is in its initial setup phase. We're focusing on establishing the foundational architecture and preparing for development of the core features.
+## 1. Current Focus
 
-### Primary Focus Areas
-1. Project initialization and structure setup
-2. Database schema design and configuration
-3. Authentication system implementation
-4. Basic UI components and layouts
+- **Phase 6: Refinement & Deployment**
+- **Current Task:** Task 6.1: Comprehensive Testing.
 
-## Recent Changes
+## 2. Recent Changes
 
-None yet. The project is just being initialized with the creation of the memory bank.
+- **Completed Phase 5: Advanced Features (Withdrawals & Affiliates)**
+  - **Task 5.3:** Implemented Reviews & Q&A system (Actions: `submitReview`, `submitQuestion`, `submitAnswer`. Components: `ReviewList`, `QuestionAnswerList`, `ReviewForm`, `QuestionForm`. Integrated into product detail page. Updated `getPublicProductBySlug` to fetch required data for Q&A). Added `separator` and `avatar` Shadcn components.
+  - **Task 5.2:** Implemented Affiliate System (Actions: `generateAffiliateCode`, `getAffiliateCode`, `getAffiliateBalance`. Component: `AffiliateCodeDisplay`. Updated `CartSheet`, `createCheckoutSession`, webhook handler, `updateOrderItemStatus`. Reused `WithdrawalRequestForm` on Affiliate Dashboard).
+  - **Task 5.1:** Implemented Vendor Withdrawal System (Actions: `getVendorBalance`, `requestWithdrawal`, `getWithdrawalRequests`, `approveWithdrawal`, `rejectWithdrawal`, `markWithdrawalPaid`. Components: `WithdrawalRequestForm`, `WithdrawalManagementTable`. Created Vendor & Admin dashboard pages/sections). Added `alert-dialog` Shadcn component.
+- **Completed Phase 4: Post-Purchase & Management Dashboards**
+  - **Task 4.6:** Implemented secure digital asset download API route (`/api/download/[assetId]`) with purchase verification. Installed `@types/mime-types`.
+  - **Task 4.5:** Created admin approvals page (`/dashboard/admin/approvals`) and implemented `getPendingUsers`, `approveUser`, `rejectUser` actions. Added `ApprovalList` component.
+  - **Task 4.4:** Created profile page (`/dashboard/profile`) and implemented `getUserProfile`, `updateUserProfile`, `createAddress`, `updateAddress`, `deleteAddress`, `setDefaultAddress` actions. Added `ProfileForm` and `AddressList` components. Added `Dialog` component.
+  - **Task 4.3:** Created placeholder admin pages for viewing all orders (`/dashboard/admin/orders`) and users (`/dashboard/admin/users`).
+  - **Task 4.2:** Created customer order history page (`/dashboard/orders`) and implemented `getCustomerOrders` action.
+  - **Task 4.1:** Created vendor order management page (`/dashboard/vendor/orders`) and implemented `getVendorOrderItems`, `updateOrderItemStatus` actions. Added `VendorOrderTable` component with status update dropdown. Added `Table` and `DropdownMenu` components.
+- **Completed Phase 3: Storefront & Purchase Flow**
+  - **Task 3.6:** Implemented Stripe Webhook handler (`/api/webhooks/stripe`) for `checkout.session.completed` event, including DB transaction for order/item creation, stock decrement, and placeholder email confirmation.
+  - **Task 3.5:** Implemented `createCheckoutSession` server action and integrated it with the `CartSheet` button.
+  - **Task 3.4:** Added placeholders for shipping cost and address logic in `CartSheet`.
+  - **Task 3.3:** Implemented client-side cart using `CartContext`, `localStorage`, and `CartSheet` UI component. Added `Sheet` and `ScrollArea` components.
+  - **Task 3.2:** Implemented `searchProducts` server action and `/search` page with loading skeleton.
+  - **Task 3.1:** Created public product listing (`/products`), category (`/categories/[slug]`), and detail (`/products/[slug]`) pages. Implemented data fetching actions (`getPublicProducts`, `getPublicProductsByCategory`, `getPublicProductBySlug`). Added `ProductCard` component. Implemented `generateMetadata` for product detail and category pages. Added `formatPrice` utility. Added `Skeleton` component.
+- **Completed Task 2.3: Vendor Product CRUD Operations**
+  - Implemented `createProduct`, `getProductById`, `updateProduct`, and `deleteProduct` server actions in `src/actions/product.actions.ts`.
+  - Implemented file upload handling within create/update actions.
+  - Implemented file deletion handling within update/delete actions (Task 2.3.4).
+  - Created `/dashboard/vendor/products` page with `VendorProductTable` to list products (Task 2.3.1, 2.3.5).
+  - Created `/dashboard/vendor/products/new` page using `ProductForm` (Task 2.3.2 - Create).
+  - Created `/dashboard/vendor/products/edit/[productId]` page using `ProductForm` (Task 2.3.2 - Edit).
+  - Added necessary Shadcn UI components (`table`, `dropdown-menu`, `badge`, `textarea`, `checkbox`).
+  - Added `generateSlug` utility.
+  - Refactored `VendorProductTable` actions cell into `ProductActionsCell` component.
+- **Completed Task 2.2: Implement File Upload (Local Storage)**
+  - Created `uploadFile` Server Action in `src/actions/product.actions.ts`.
+  - Implemented logic for saving images/assets to designated folders (`/public/uploads/images`, `/uploads/assets`).
+  - Added UUID generation for unique filenames.
+  - Included file type and size validation.
+  - Ensured upload directories are created automatically.
+  - Corrected NextAuth types (`next-auth.d.ts`) and updated `auth.ts` callbacks to include `role` and `status` in the session user object.
+- **Completed Task 2.1: Define Product & Related Schemas**
+  - Added schemas for `Product`, `ProductVariant`, `Category`, `ProductImage`, `DigitalAsset`, `Review`, `QuestionAnswer`, `Order`, `OrderItem`, `AffiliateCode`, `AffiliateReferral`, `WithdrawalRequest` to `src/db/schema.ts`.
+  - Added corresponding relations.
+  - Generated and applied database migrations.
+- **Completed Phase 1: Project Setup & Core Foundation**
+  - Completed Task 1.5: Created Basic Static Pages (`/terms`, `/privacy`, `/about`) and added a basic `Footer` component to the layout.
+  - Completed Task 1.4: Implemented Password Reset Flow (Forms, Actions, Pages, Resend config).
+  - Completed Task 1.3: Implemented Enhanced Authentication & Registration (NextAuth config, Forms, Actions, Pages, Middleware).
+  - Completed Task 1.2: Setup Database & Core Schemas (Drizzle config, Schemas, Migrations).
+  - Completed Task 1.1: Initialized Project & Dependencies (Next.js, Tailwind, Shadcn, Testing, etc.).
+- Created all core Memory Bank files and `.clinerules`.
 
-## Next Steps
+## 3. Next Steps (Immediate)
 
-Following the phased approach outlined in the project brief, we will:
+- **Task 6.1:** Comprehensive Testing (Jest & Cypress).
+- **Task 6.2:** Security Hardening & Validation review.
+- **Task 6.3:** UI Polish & Accessibility review.
+- **Task 6.4:** Deployment Preparation (ENV vars, build process documentation).
 
-### Immediate (Phase 1: Project Setup & Core Foundation)
+## 4. Active Decisions & Considerations
 
-1. **Initialize Next.js Project**
-   - Set up Next.js 15 with App Router
-   - Configure TailwindCSS and Shadcn UI
-   - Set up TypeScript
-   - Initialize ESLint and Prettier
-
-2. **Database Configuration**
-   - Configure PostgreSQL connection
-   - Set up Drizzle ORM
-   - Create initial database schema for users and authentication
-   - Implement database migration system
-
-3. **Authentication System**
-   - Implement NextAuth.js v5 with email/password provider
-   - Create login and registration forms
-   - Set up middleware for route protection
-   - Implement role and status-based access control
-
-4. **Password Reset Flow**
-   - Configure Resend email service
-   - Implement password reset token generation and validation
-   - Create password reset forms and workflows
-
-5. **Basic Static Pages**
-   - Create layout components
-   - Implement basic navigation
-   - Add placeholder pages for terms, privacy policy, about
-
-### Upcoming (Phase 2: Product Management)
-
-1. Define complete database schema
-2. Implement file upload system
-3. Create vendor dashboard for product management
-4. Build product listing and detail pages
-
-## Active Decisions & Considerations
-
-### Architecture Decisions
-- **Server Actions vs. API Routes**: Using Server Actions as the primary method for data mutations, with API Routes only for external integrations (e.g., webhooks)
-- **Component Organization**: Deciding on the organization of UI components, form components, and layout components
-- **Error Handling Strategy**: Implementing consistent error handling across all Server Actions with proper user feedback
-
-### Technical Considerations
-- **File Storage**: Using local file system storage with awareness of scalability limitations
-- **Database Schema**: Designing efficient schema relationships for products, variants, orders, and users
-- **Authentication Strategy**: Implementing proper role and status-based authorization checks
-- **Form Validation**: Using Zod for server-side validation of all inputs
-
-### UX Considerations
-- **Dashboard Layout**: Creating intuitive dashboards for each user role
-- **Product Management Flow**: Designing efficient product creation and management workflows for vendors
-- **Checkout Experience**: Planning for seamless checkout experience with proper validation and error handling 
+- Following the phased approach outlined in `projectbrief.md`.
+- Ensuring all core Memory Bank files are created before starting development tasks.

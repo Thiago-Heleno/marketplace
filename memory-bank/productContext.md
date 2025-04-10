@@ -1,91 +1,34 @@
 # Product Context: Multi-Vendor Marketplace
 
-## Why This Project Exists
+**Version:** 1.0
+**Date:** 30/03/2025
+**Based on:** `projectbrief.md` v1.0
 
-This project aims to build a functional multi-vendor marketplace web application that enables:
+## 1. Purpose & Problem Solved
 
-1. **Vendors** to sell both digital and physical products through a centralized platform
-2. **Customers** to discover, purchase, and access products from multiple vendors in one place
-3. **Affiliates** to earn commissions by referring customers to products
-4. **Administrators** to oversee operations, approvals, and payments
+This project aims to create a functional online marketplace where multiple vendors can sell digital and physical products. It addresses the need for a platform that facilitates:
 
-## Problems It Solves
+- **For Vendors:** Easy registration (with approval), product listing (including variations), inventory management, order fulfillment tracking, and a clear withdrawal process for earnings.
+- **For Customers:** A seamless browsing, searching, and purchasing experience for both digital and physical goods, along with order tracking and secure access to digital purchases.
+- **For Affiliates:** A system to generate referral codes, track commissions earned from referred sales, and request withdrawals.
+- **For Admins:** Oversight capabilities for approving users (vendors/affiliates) and managing withdrawal requests.
 
-1. **For Vendors:**
-   - Eliminates the need to build and maintain their own e-commerce platform
-   - Provides built-in customer acquisition through the marketplace
-   - Handles payment processing and order management
-   - Simplifies digital product delivery
+The core problem is providing a centralized, reliable, and secure platform connecting vendors, customers, and affiliates within a single marketplace ecosystem, focusing initially on an MVP.
 
-2. **For Customers:**
-   - Centralizes shopping experience across multiple vendors
-   - Standardizes checkout and order tracking
-   - Provides secure access to digital products
-   - Enables discovery of related products
+## 2. Target Users & Experience Goals
 
-3. **For Affiliates:**
-   - Creates income opportunities through product referrals
-   - Provides transparent tracking of commissions
-   - Offers a structured withdrawal system
+- **Customers:** Seek a user-friendly interface to discover and purchase diverse products. Expect clear product information, a simple checkout process (Stripe), reliable order tracking, and secure access to digital downloads.
+- **Vendors:** Need an intuitive dashboard to manage their products (CRUD, variants, stock, images, digital assets), track orders assigned to them, manage fulfillment status, understand their earnings (post-commission), and request withdrawals via PIX. Require an approval step for registration.
+- **Affiliates:** Need a simple way to register (with approval), generate unique referral codes, track the commissions earned from successful, fulfilled orders referred by them, and request withdrawals via PIX.
+- **Admin:** Requires tools to manage the platform's integrity by approving/rejecting vendor and affiliate registrations and overseeing the manual withdrawal process.
 
-4. **For Platform Owners:**
-   - Generates revenue through commission on sales
-   - Builds a scalable business with multiple revenue streams
-   - Creates network effects between vendors, customers, and affiliates
+**Overall Experience Goal:** A simple, reliable, and secure MVP experience for all user types, prioritizing core functionality over complex features for V1.
 
-## How It Should Work
+## 3. Key Functionality (User Perspective)
 
-### Customer Experience
-1. Browse products by category or search
-2. View detailed product information (variants, stock, reviews, Q&A)
-3. Add items to cart
-4. Complete checkout through Stripe
-5. Track order status
-6. Access digital products securely
-7. Leave reviews and ask questions
+- **Browsing/Shopping:** Find products via categories or search, view details (variants, stock), add to cart, checkout via Stripe (handling physical item shipping address/cost), view order history, download digital items.
+- **Selling (Vendor):** Register, manage product listings, manage inventory/variants, view and update fulfillment status for their order items, see calculated balance, request withdrawal.
+- **Referring (Affiliate):** Register, generate code, track confirmed commissions, see calculated balance, request withdrawal.
+- **Administering:** Approve users, view all orders/users, manage withdrawal requests.
 
-### Vendor Experience
-1. Register (pending admin approval)
-2. Manage product listings (including variants, images, digital assets)
-3. Track and fulfill orders
-4. View earnings and request withdrawals
-5. Respond to customer questions
-
-### Affiliate Experience
-1. Register (pending admin approval)
-2. Generate and share referral codes
-3. Track referral performance and earnings
-4. Request withdrawals
-
-### Admin Experience
-1. Review and approve vendor/affiliate registrations
-2. Monitor overall marketplace activity
-3. Process withdrawal requests
-4. Manage system settings
-
-## User Experience Goals
-
-1. **Simplicity:**
-   - Intuitive navigation and workflows
-   - Clear, consistent UI patterns
-   - Minimal steps to complete core actions
-
-2. **Reliability:**
-   - Accurate inventory and order information
-   - Dependable digital product delivery
-   - Transparent tracking of commissions and earnings
-
-3. **Security:**
-   - Proper authentication and authorization
-   - Secure handling of payments and personal information
-   - Protected access to digital assets
-
-4. **Efficiency:**
-   - Quick product discovery
-   - Streamlined checkout process
-   - Easy order management for vendors
-
-5. **Transparency:**
-   - Clear commission structure
-   - Visible order status
-   - Explicit fee disclosure 
+_(Details derived from `projectbrief.md` Section 2 & 4)_

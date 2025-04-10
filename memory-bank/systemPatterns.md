@@ -1,112 +1,77 @@
 # System Patterns: Multi-Vendor Marketplace
 
-## System Architecture
+**Version:** 1.0
+**Date:** 30/03/2025
+**Based on:** `projectbrief.md` v1.0
 
-The multi-vendor marketplace follows a modern web application architecture using Next.js 15 with the App Router:
+## 1. Architecture Overview
 
+- **Framework:** Next.js 15 (App Router) - Leverages React Server Components and Server Actions for backend logic within the frontend framework.
+- **Database:** PostgreSQL - Relational database for structured data.
+- **ORM:** Drizzle ORM - TypeScript ORM for database interaction, schema definition, and migrations.
+- **Authentication:** NextAuth.js v5 - Handles user authentication (Email/Password initially).
+- **UI:** TailwindCSS + Shadcn UI - Utility-first CSS framework and pre-built component library.
+- **Payments:** Stripe Checkout - Offloads payment processing complexity. Relies on webhooks for order confirmation.
+- **File Storage:** Local Filesystem - Simple storage for V1, acknowledging scalability limitations. Public images (`./public/uploads/images`) and protected assets (`./uploads/assets`).
+- **Background/API:** Next.js Server Actions and API Routes (specifically for webhooks and secure downloads).
+
+```mermaid
+graph TD
+    subgraph Browser
+        UI[Next.js Frontend: React, Tailwind, Shadcn]
+    end
+
+    subgraph Server (Next.js)
+        AppRouter[App Router] --> ServerActions[Server Actions]
+        AppRouter --> API[API Routes: /api/webhooks/stripe, /api/download]
+        ServerActions --> AuthN[NextAuth.js]
+        ServerActions --> Drizzle[Drizzle ORM]
+        ServerActions --> FileSys[Local File System: ./public/uploads, ./uploads]
+        ServerActions --> Email[Resend API]
+        API --> AuthN
+        API --> Drizzle
+        API --> FileSys
+        AuthN --> Drizzle
+    end
+
+    subgraph External Services
+        Stripe[Stripe API: Checkout, Webhooks]
+        Resend[Resend API: Emails]
+    end
+
+    subgraph Database
+        DB[(PostgreSQL)]
+    end
+
+    UI --> AppRouter
+    AppRouter --> UI
+
+    ServerActions --> Stripe
+    API -- Webhook --> ServerActions
+
+    Drizzle --> DB
+
+    style FileSys fill:#f9f,stroke:#333,stroke-width:2px
 ```
-┌─── Client Side ───┐     ┌─── Server Side ───┐     ┌─── External Services ───┐
-│                   │     │                   │     │                         │
-│  React Components │◄───►│  Server Actions   │◄───►│  Stripe                 │
-│  Client Context   │     │  API Routes       │     │  Resend Email           │
-│  UI Components    │     │  Next.js Routes   │     │                         │
-│                   │     │                   │     │                         │
-└───────────────────┘     └─────────┬─────────┘     └─────────────────────────┘
-                                    │
-                                    ▼
-                          ┌─── Data Layer ───┐       ┌─── File Storage ───┐
-                          │                  │       │                    │
-                          │  PostgreSQL DB   │       │  Public Images     │
-                          │  Drizzle ORM     │       │  Protected Assets  │
-                          │                  │       │                    │
-                          └──────────────────┘       └────────────────────┘
-```
 
-## Key Technical Decisions
+## 2. Key Technical Decisions & Patterns
 
-1. **Next.js App Router**
-   - Server Components for initial rendering and data fetching
-   - Client Components for interactive elements
-   - Metadata API for SEO optimization
+- **Server Actions:** Primary mechanism for backend logic (CRUD, checkout creation, etc.). Enables colocation of frontend and backend logic. Requires strict input validation (Zod) and authorization checks.
+- **Drizzle ORM:** Manages database schema (`schema.ts`), migrations (`drizzle-kit`), and queries. Provides type safety.
+- **NextAuth.js:** Handles session management and authentication flow. Middleware used for route protection.
+- **Local File Storage:** Simplifies V1 setup but requires careful handling of file paths, unique naming (UUIDs), and cleanup (e.g., `fs.unlink` on delete). Secure downloads require dedicated API route with authorization.
+- **Stripe Integration:** Uses Stripe Checkout for UI, relies on `checkout.session.completed` webhook for order persistence. Requires webhook signature verification.
+- **Database Transactions:** Essential for operations involving multiple related database updates (e.g., order creation: create Order, OrderItems, decrement stock, create AffiliateReferral).
+- **Client-Side Cart:** Uses React Context and `localStorage` for persistence within the user's browser session.
+- **Environment Variables:** Used extensively for configuration (API keys, commission rates, shipping rates, DB URL).
+- **Error Handling:** Server Actions return structured objects (`{ success, message?, error? }`) for frontend feedback (e.g., Toasts).
+- **Authorization:** Role-based (`User.role`) and status-based (`User.status`) checks enforced within Server Actions. Ownership checks required for updates/deletes (e.g., vendor modifying own product).
 
-2. **Server Actions for Backend Logic**
-   - Secure server-side mutations with proper validation and error handling
-   - Consistent pattern returning `{ success, data, error }` objects
-   - Authorization checks on all protected operations
+## 3. Component Relationships (High-Level)
 
-3. **Authentication with NextAuth.js v5**
-   - Email/Password authentication only
-   - Role-based access control (`CUSTOMER`, `VENDOR`, `AFFILIATE`, `ADMIN`)
-   - Status-based access control (`PENDING`, `ACTIVE`, `REJECTED`)
-
-4. **Database Access with Drizzle ORM**
-   - Type-safe database schema definition
-   - Migrations for schema versioning
-   - Transactions for atomic operations (e.g., order creation)
-
-5. **Local File Storage**
-   - Public images in `./public/uploads/images`
-   - Protected digital assets in `./uploads/assets`
-   - File management handled via Node.js `fs` module
-
-6. **Payment Processing with Stripe**
-   - Checkout Sessions for secure payment handling
-   - Webhooks for order confirmation and processing
-   - Direct integration with order creation flow
-
-7. **Email Service with Resend**
-   - Password reset functionality
-   - Order confirmations
-   - Service notifications
-
-## Design Patterns
-
-1. **Repository Pattern**
-   - Database access abstracted through repository functions
-   - Centralized query logic for each entity
-
-2. **Service Layer Pattern**
-   - Business logic separated from data access and presentation
-   - Services orchestrate repository calls and external API interactions
-
-3. **React Context for State Management**
-   - Shopping cart maintained in client-side context + localStorage
-   - Auth context for user session information
-
-4. **Server Action Pattern**
-   - Form submissions handled by server actions
-   - Consistent error handling and response structure
-   - Authorization checks at the beginning of each action
-
-5. **Middleware Pattern**
-   - Route protection via Next.js middleware
-   - Role and status-based access control
-
-## Component Relationships
-
-### User Management
-- `User` entity with role and status fields
-- Role-specific dashboards and features
-- Status transitions controlled by admin actions
-
-### Product System
-- `Product` as primary entity with variants, images, and assets
-- Products linked to vendors
-- Categories for organization
-- Review and Q&A functionality
-
-### Order System
-- `Order` as primary entity with line items
-- Order items linked to products, variants, and vendors
-- Status transitions for order fulfillment
-- Digital asset access tied to order status
-
-### Financial System
-- Commission calculations based on order fulfillment
-- Withdrawal requests with approval workflow
-- Affiliate referrals linked to orders
-
-### File Management
-- Consistent file naming and storage strategy
-- Secure access control for protected assets
-- Cleanup routines for deleted products 
+- **Pages (App Router):** Define routes and fetch initial data.
+- **UI Components (Shadcn):** Used for forms, tables, modals, etc.
+- **Server Actions:** Encapsulate specific backend operations triggered by UI interactions.
+- **Context Providers:** Manage global state (e.g., Cart).
+- **Middleware:** Protects routes based on authentication status/role.
+- **API Routes:** Handle external interactions (webhooks, secure file downloads).

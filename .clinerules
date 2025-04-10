@@ -1,105 +1,30 @@
-# Project Intelligence: Multi-Vendor Marketplace
+# Cline Rules: Multi-Vendor Marketplace
 
-## Technology Usage Patterns
+**Version:** 1.0
+**Date:** 30/03/2025
 
-### Next.js App Router
-- Use Server Components for data fetching and initial rendering
-- Use Client Components only when interactivity is needed
-- Follow the layout-page-component pattern for route organization
+## Purpose
 
-### Server Actions
-- Always include proper authorization checks at the beginning of each action
-- Return consistent response objects: `{ success: boolean, data?: any, error?: string }`
-- Use Zod for input validation
-- Handle errors with try/catch and return structured error messages
+This file captures project-specific patterns, user preferences, critical implementation details, and other intelligence gathered during the development of the Multi-Vendor Marketplace project. It helps ensure consistency and efficiency, especially given memory resets between sessions.
 
-### Database Access
-- Use Drizzle ORM for all database operations
-- Define schemas in separate files in lib/db/schema
-- Use migrations for all schema changes
-- Use transactions for operations that modify multiple tables
+## Key Learnings & Patterns
 
-### Authentication
-- Use NextAuth.js v5 for authentication
-- Implement role-based access control (CUSTOMER, VENDOR, AFFILIATE, ADMIN)
-- Implement status-based access control (PENDING, ACTIVE, REJECTED)
-- Use middleware for route protection
+_(This section will be populated as development progresses)_
 
-### File Management
-- Store public images in ./public/uploads/images
-- Store protected assets in ./uploads/assets
-- Use UUID for file names to prevent collisions
-- Clean up files when related entities are deleted
+- **Example Pattern:** (e.g., Always use named exports for Server Actions to improve clarity.)
+- **User Preference:** (e.g., Prefer Shadcn `Sheet` component for cart display over a modal.)
+- **Technical Decision:** (e.g., Decided against using a specific library due to X reason.)
+- **Workflow Note:** (e.g., Remember to run `npm run db:generate` after schema changes.)
 
-## Code Style Preferences
+## Tool Usage Preferences
 
-### Component Organization
-- Group components by feature or page
-- Use index.tsx files for exporting multiple components from a directory
-- Follow naming convention: PascalCase for components, camelCase for utilities
+_(Document preferred ways to use tools like `replace_in_file` vs `write_to_file` for specific scenarios in this project)_
 
-### CSS Styling
-- Use TailwindCSS utility classes for styling
-- Use Shadcn UI components as base building blocks
-- Create custom UI components when needed in components/ui directory
-- Follow mobile-first responsive design approach
+- ...
 
-### TypeScript Usage
-- Use explicit type annotations for function parameters and return values
-- Use interfaces for complex objects, especially database entities
-- Use enums for fixed sets of values (e.g., user roles, order statuses)
-- Use generics for reusable components and functions
+## Important Reminders
 
-## Project Workflow
-
-### Development Process
-- Start with database schema design for each feature
-- Implement server actions and data access layer
-- Create UI components and integrate with server actions
-- Add tests for each feature
-- Document changes in memory bank
-
-### Testing Strategy
-- Write Jest tests for server actions and utilities
-- Use Cypress for end-to-end testing of user flows
-- Focus on testing critical paths: auth, checkout, product management
-
-## Critical Implementation Paths
-
-### Order Processing Flow
-1. User completes Stripe checkout
-2. Stripe webhook triggers order creation
-3. Order and OrderItems are created in database
-4. Stock is decremented for purchased variants
-5. Order confirmation email is sent
-6. Digital assets are made available or physical items await fulfillment
-
-### Withdrawal Process
-1. Vendor/Affiliate requests withdrawal
-2. Admin reviews and approves withdrawal request
-3. Admin manually processes payment via PIX
-4. Admin marks withdrawal as paid in system
-
-### User Registration Flow
-1. User registers with email/password and role selection
-2. If CUSTOMER: Account is immediately active
-3. If VENDOR/AFFILIATE: Account is pending admin approval
-4. Admin reviews and approves/rejects account
-5. User is notified of approval/rejection
-
-## Known Challenges
-
-### File Storage Limitations
-- Local file storage will limit scalability
-- Future migration to cloud storage (S3/R2) should be planned
-- Need to handle file cleanup properly to prevent orphaned files
-
-### Payment Processing
-- Manual withdrawal process may become time-consuming as platform grows
-- Future integration with PIX APIs could automate this process
-
-### Security Considerations
-- Protect digital assets from unauthorized access
-- Implement proper validation for all user inputs
-- Ensure secure password handling and reset flows
-- Verify Stripe webhook signatures to prevent fraud 
+- Refer to `memory-bank/` files for core project context.
+- Prioritize tasks based on `projectbrief.md` phases and `activeContext.md`.
+- Ensure Jest/Cypress tests accompany new features/actions.
+- Validate inputs and check authorization rigorously in Server Actions.
