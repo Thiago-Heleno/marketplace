@@ -29,8 +29,9 @@
       ]
     },
     "types": [
-      "vitest/globals"
-    ] // Add Vitest global types
+      "vitest/globals",
+      "@testing-library/jest-dom" // Add jest-dom types
+    ]
   },
   "include": [
     "next-env.d.ts",
