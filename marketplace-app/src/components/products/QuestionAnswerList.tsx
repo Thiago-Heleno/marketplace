@@ -137,7 +137,11 @@ QuestionAnswerListProps) {
   return (
     <div className="space-y-8">
       {questionAnswers.map((qa) => (
-        <div key={qa.id} className="flex gap-4">
+        <div
+          key={qa.id}
+          className="flex gap-4"
+          data-testid={`qa-item-${qa.id}`} // Added data-testid
+        >
           <Avatar className="h-10 w-10 mt-1">
             <AvatarFallback>
               {getInitials(qa.user?.firstName, qa.user?.lastName)}
@@ -183,6 +187,7 @@ QuestionAnswerListProps) {
                     onChange={(e) => handleAnswerChange(qa.id, e.target.value)}
                     disabled={answerForms[qa.id]?.isLoading}
                     rows={2}
+                    data-testid={`qa-answer-textarea-${qa.id}`} // Added data-testid
                   />
                   <Button
                     size="sm"
@@ -191,6 +196,7 @@ QuestionAnswerListProps) {
                       answerForms[qa.id]?.isLoading ||
                       !answerForms[qa.id]?.text?.trim()
                     }
+                    data-testid={`qa-answer-submit-button-${qa.id}`} // Added data-testid
                   >
                     {answerForms[qa.id]?.isLoading && (
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />

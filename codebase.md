@@ -1,3 +1,173 @@
+<file_map>
+C:\Users\tibis\OneDrive\Desktop\marketplace\marketplace-app
+├── scripts
+│   └── seed-admin.ts
+├── src
+│   ├── actions
+│   │   ├── affiliate.actions.ts
+│   │   ├── auth.actions.test.ts
+│   │   ├── auth.actions.ts
+│   │   ├── checkout.actions.ts
+│   │   ├── order.actions.ts
+│   │   ├── product.actions.ts
+│   │   ├── review.actions.ts
+│   │   └── user.actions.ts
+│   ├── app
+│   │   ├── about
+│   │   │   └── page.tsx
+│   │   ├── api
+│   │   │   ├── auth
+│   │   │   │   └── [...nextauth]
+│   │   │   │       └── route.ts
+│   │   │   ├── download
+│   │   │   │   └── [assetId]
+│   │   │   │       └── route.ts
+│   │   │   └── webhooks
+│   │   │       └── stripe
+│   │   │           └── route.ts
+│   │   ├── categories
+│   │   │   └── [slug]
+│   │   │       └── page.tsx
+│   │   ├── dashboard
+│   │   │   ├── admin
+│   │   │   │   ├── approvals
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── orders
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── users
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── withdrawals
+│   │   │   │       └── page.tsx
+│   │   │   ├── affiliate
+│   │   │   │   └── page.tsx
+│   │   │   ├── orders
+│   │   │   │   └── page.tsx
+│   │   │   ├── profile
+│   │   │   │   └── page.tsx
+│   │   │   └── vendor
+│   │   │       ├── orders
+│   │   │       │   └── page.tsx
+│   │   │       ├── products
+│   │   │       │   ├── edit
+│   │   │       │   │   └── [productId]
+│   │   │       │   │       └── page.tsx
+│   │   │       │   ├── new
+│   │   │       │   │   └── page.tsx
+│   │   │       │   └── page.tsx
+│   │   │       └── page.tsx
+│   │   ├── forgot-password
+│   │   │   └── page.tsx
+│   │   ├── login
+│   │   │   └── page.tsx
+│   │   ├── privacy
+│   │   │   └── page.tsx
+│   │   ├── products
+│   │   │   ├── [slug]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── register
+│   │   │   └── page.tsx
+│   │   ├── reset-password
+│   │   │   └── page.tsx
+│   │   ├── search
+│   │   │   └── page.tsx
+│   │   ├── terms
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── admin
+│   │   │   ├── ApprovalList.tsx
+│   │   │   └── WithdrawalManagementTable.tsx
+│   │   ├── affiliate
+│   │   │   └── AffiliateCodeDisplay.tsx
+│   │   ├── auth
+│   │   │   ├── ForgotPasswordForm.tsx
+│   │   │   ├── LoginForm.tsx
+│   │   │   ├── RegisterForm.tsx
+│   │   │   └── ResetPasswordForm.tsx
+│   │   ├── cart
+│   │   │   └── CartSheet.tsx
+│   │   ├── layout
+│   │   │   ├── Footer.tsx
+│   │   │   └── Navbar.tsx
+│   │   ├── products
+│   │   │   ├── AddToCartButton.tsx
+│   │   │   ├── ProductCard.tsx
+│   │   │   ├── ProductVariantSelector.tsx
+│   │   │   ├── QuestionAnswerList.tsx
+│   │   │   ├── QuestionForm.tsx
+│   │   │   ├── ReviewForm.tsx
+│   │   │   └── ReviewList.tsx
+│   │   ├── profile
+│   │   │   ├── AddressForm.tsx
+│   │   │   ├── AddressList.tsx
+│   │   │   └── ProfileForm.tsx
+│   │   ├── ui
+│   │   │   ├── alert-dialog.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── badge.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── dropdown-menu.tsx
+│   │   │   ├── form.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── radio-group.tsx
+│   │   │   ├── scroll-area.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── separator.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   ├── skeleton.tsx
+│   │   │   ├── sonner.tsx
+│   │   │   ├── table.tsx
+│   │   │   └── textarea.tsx
+│   │   └── vendor
+│   │       ├── .gitkeep
+│   │       ├── ProductForm.tsx
+│   │       ├── VendorOrderTable.tsx
+│   │       ├── VendorProductTable.tsx
+│   │       └── WithdrawalRequestForm.tsx
+│   ├── context
+│   │   └── CartContext.tsx
+│   ├── db
+│   │   ├── migrations
+│   │   │   ├── meta
+│   │   │   │   ├── _journal.json
+│   │   │   │   ├── 0000_snapshot.json
+│   │   │   │   └── 0001_snapshot.json
+│   │   │   ├── 0000_familiar_psylocke.sql
+│   │   │   └── 0001_amazing_gamora.sql
+│   │   ├── index.ts
+│   │   └── schema.ts
+│   └── lib
+│       ├── schemas
+│       │   ├── auth.schema.ts
+│       │   └── product.schema.ts
+│       ├── resend.ts
+│       ├── utils.test.ts
+│       └── utils.ts
+├── .gitignore
+├── auth.config.ts
+├── auth.ts
+├── components.json
+├── cypress.config.ts
+├── drizzle.config.ts
+├── eslint.config.mjs
+├── middleware.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tailwind.config.ts
+├── vitest.config.ts
+└── vitest.setup.ts
+
+</file_map>
+
 
 
 // ---- File: 0001_snapshot.json ----
@@ -4326,6 +4496,600 @@ export const withdrawalRequestsRelations = relations(
     }),
   })
 );
+
+
+// ---- File: auth.actions.test.ts ----
+
+// marketplace-app/src/actions/auth.actions.test.ts
+
+/// <reference types="vitest/globals" />
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { db } from "@/db"; // Keep import for type safety if needed, but value is mocked
+import { users, passwordResetTokens, userStatusEnum } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import bcrypt from "bcryptjs";
+import { signIn } from "@/../auth";
+import {
+  registerUser,
+  signInWithCredentials,
+  requestPasswordReset,
+  resetPassword,
+} from "./auth.actions";
+import { AuthError } from "next-auth";
+import { resend } from "@/lib/resend";
+
+// --- Mocks ---
+
+// --- Revised Hoisted Mocks ---
+// Expose intermediate and final mock functions for better control
+const {
+  // Query mocks
+  mockUserFindFirst,
+  mockTokenFindFirst,
+  // Insert chain mocks
+  mockDbInsert, // vi.fn() -> insert()
+  mockDbInsertValuesFn, // vi.fn() -> insert().values()
+  mockDbInsertReturningFn, // vi.fn() -> insert().values().returning()
+  // Update chain mocks
+  mockDbUpdate, // vi.fn() -> update()
+  mockDbUpdateSetFn, // vi.fn() -> update().set()
+  mockDbUpdateWhereFn, // vi.fn() -> update().set().where()
+  // Delete chain mocks
+  mockDbDelete, // vi.fn() -> delete()
+  mockDbDeleteWhereFn, // vi.fn() -> delete().where()
+} = vi.hoisted(() => {
+  const mockUserFindFirst = vi.fn();
+  const mockTokenFindFirst = vi.fn();
+  const mockDbInsertReturningFn = vi.fn();
+  const mockDbInsertValuesFn = vi.fn(() => ({
+    returning: mockDbInsertReturningFn,
+  }));
+  const mockDbInsert = vi.fn(() => ({ values: mockDbInsertValuesFn }));
+  const mockDbUpdateWhereFn = vi.fn();
+  const mockDbUpdateSetFn = vi.fn(() => ({ where: mockDbUpdateWhereFn }));
+  const mockDbUpdate = vi.fn(() => ({ set: mockDbUpdateSetFn }));
+  const mockDbDeleteWhereFn = vi.fn();
+  const mockDbDelete = vi.fn(() => ({ where: mockDbDeleteWhereFn }));
+
+  return {
+    mockUserFindFirst,
+    mockTokenFindFirst,
+    mockDbInsert,
+    mockDbInsertValuesFn,
+    mockDbInsertReturningFn,
+    mockDbUpdate,
+    mockDbUpdateSetFn,
+    mockDbUpdateWhereFn,
+    mockDbDelete,
+    mockDbDeleteWhereFn,
+  };
+});
+
+// Hoist mock for Resend send method
+const { mockSendEmail } = vi.hoisted(() => {
+  return { mockSendEmail: vi.fn() };
+});
+
+// Mock NextAuth functions
+vi.mock("@/../auth", () => ({
+  signIn: vi.fn(),
+  auth: vi.fn(),
+}));
+
+// Mock Drizzle ORM db instance
+vi.mock("@/db", () => {
+  const mockedDbObject = {
+    insert: mockDbInsert,
+    update: mockDbUpdate,
+    delete: mockDbDelete,
+    query: {
+      users: { findFirst: mockUserFindFirst },
+      passwordResetTokens: { findFirst: mockTokenFindFirst },
+    },
+    transaction: vi.fn().mockImplementation(async (callback) => {
+      // Pass the mockedDbObject itself to the callback
+      return await callback(mockedDbObject);
+    }),
+  };
+  return {
+    db: mockedDbObject,
+  };
+});
+
+// Mock bcryptjs
+vi.mock("bcryptjs", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("bcryptjs")>();
+  return {
+    ...actual,
+    hash: vi.fn().mockResolvedValue("mock-hashed-password"),
+    compare: vi.fn().mockResolvedValue(true),
+    default: {
+      // Ensure default is also mocked if used like `import bcrypt from 'bcryptjs'`
+      hash: vi.fn().mockResolvedValue("mock-hashed-password"),
+      compare: vi.fn().mockResolvedValue(true),
+    },
+  };
+});
+
+// Mock Resend
+vi.mock("@/lib/resend", () => ({
+  resend: {
+    emails: {
+      send: mockSendEmail,
+    },
+  },
+}));
+
+// --- Test Suite ---
+
+describe("Authentication Actions (auth.actions.ts)", () => {
+  const originalResendApiKey = process.env.RESEND_API_KEY;
+  const originalNextAuthUrl = process.env.NEXTAUTH_URL;
+
+  beforeEach(() => {
+    // Reset all mocks
+    vi.resetAllMocks();
+
+    // Reset specific mock implementations/return values
+    vi.mocked(signIn).mockResolvedValue(undefined);
+    vi.mocked(mockUserFindFirst).mockResolvedValue(undefined);
+    vi.mocked(mockTokenFindFirst).mockResolvedValue(undefined);
+    vi.mocked(mockSendEmail).mockResolvedValue({
+      data: { id: "mock-email-id" },
+      error: null,
+    });
+    vi.mocked(bcrypt.compare).mockResolvedValue(true);
+    vi.mocked(bcrypt.hash).mockResolvedValue("mock-hashed-password"); // Ensure hash mock is reset too
+    // Reset DB chain mocks
+    vi.mocked(mockDbInsertReturningFn).mockResolvedValue([
+      { id: "mock-new-user-id" },
+    ]);
+    vi.mocked(mockDbUpdateWhereFn).mockResolvedValue([
+      { id: "mock-updated-id" },
+    ]);
+    vi.mocked(mockDbDeleteWhereFn).mockResolvedValue([
+      { id: "deleted-token-id" },
+    ]);
+
+    // Set default required environment variables
+    process.env.RESEND_API_KEY = "test-resend-key";
+    process.env.NEXTAUTH_URL = "http://localhost:3000";
+  });
+
+  afterEach(() => {
+    // Restore original environment variables
+    process.env.RESEND_API_KEY = originalResendApiKey;
+    process.env.NEXTAUTH_URL = originalNextAuthUrl;
+  });
+
+  // --- registerUser Tests ---
+  describe("registerUser", () => {
+    const validCustomerData = {
+      firstName: "Test",
+      lastName: "User",
+      email: "test@example.com",
+      password: "password123",
+      role: "CUSTOMER" as const,
+    };
+    const validVendorData = { ...validCustomerData, role: "VENDOR" as const };
+
+    it("should successfully register a new CUSTOMER with ACTIVE status", async () => {
+      // Arrange: User does not exist
+      vi.mocked(mockUserFindFirst).mockResolvedValue(undefined);
+
+      const result = await registerUser(validCustomerData);
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe(
+        "Registration successful! You can now log in."
+      );
+      expect(mockUserFindFirst).toHaveBeenCalledWith({
+        where: eq(users.email, validCustomerData.email),
+      });
+      expect(bcrypt.hash).toHaveBeenCalledWith(validCustomerData.password, 10);
+      expect(mockDbInsert).toHaveBeenCalledWith(users);
+      // --- Assert on the correct mock ---
+      expect(mockDbInsertValuesFn).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // <-- Assert on values mock
+          email: validCustomerData.email,
+          passwordHash: "mock-hashed-password",
+          role: "CUSTOMER",
+          status: "ACTIVE",
+        })
+      );
+      expect(mockDbInsertReturningFn).toHaveBeenCalled(); // Ensure returning was called
+    });
+
+    it("should successfully register a new VENDOR with PENDING status", async () => {
+      // Arrange: User does not exist
+      vi.mocked(mockUserFindFirst).mockResolvedValue(undefined);
+
+      const result = await registerUser(validVendorData);
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe(
+        "Registration successful! Your account requires admin approval."
+      );
+      expect(mockUserFindFirst).toHaveBeenCalledWith({
+        where: eq(users.email, validVendorData.email),
+      });
+      expect(bcrypt.hash).toHaveBeenCalledWith(validVendorData.password, 10);
+      expect(mockDbInsert).toHaveBeenCalledWith(users);
+      // --- Assert on the correct mock ---
+      expect(mockDbInsertValuesFn).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // <-- Assert on values mock
+          email: validVendorData.email,
+          passwordHash: "mock-hashed-password",
+          role: "VENDOR",
+          status: "PENDING",
+        })
+      );
+      expect(mockDbInsertReturningFn).toHaveBeenCalled(); // Ensure returning was called
+    });
+
+    it("should return error if user already exists", async () => {
+      const mockExistingUser = {
+        id: "existing-id",
+        email: validCustomerData.email,
+        passwordHash: "hash",
+        role: "CUSTOMER",
+        status: "ACTIVE",
+      };
+      vi.mocked(mockUserFindFirst).mockResolvedValue(mockExistingUser as any);
+
+      const result = await registerUser(validCustomerData);
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Email already in use.");
+      expect(mockDbInsert).not.toHaveBeenCalled();
+    });
+
+    it("should return validation error for invalid data", async () => {
+      const invalidData = { ...validCustomerData, email: "not-an-email" };
+      // Suppress console error for expected validation failure
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      const result = await registerUser(invalidData);
+      consoleErrorSpy.mockRestore(); // Restore console.error
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Invalid registration details.");
+      expect(mockDbInsert).not.toHaveBeenCalled();
+    });
+
+    it("should return error if database insertion fails", async () => {
+      // Arrange: User does not exist, but DB insert fails
+      vi.mocked(mockUserFindFirst).mockResolvedValue(undefined);
+      const dbError = new Error("DB insert failed");
+      // --- Mock the final step to reject ---
+      vi.mocked(mockDbInsertReturningFn).mockRejectedValueOnce(dbError); // <-- Mock returning to reject
+      // Suppress console error for expected DB failure
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+
+      const result = await registerUser(validCustomerData);
+
+      consoleErrorSpy.mockRestore(); // Restore console.error
+
+      expect(result.success).toBe(false); // <-- Assertion should now pass
+      expect(result.message).toBe(
+        "An unexpected error occurred. Please try again."
+      );
+      expect(mockUserFindFirst).toHaveBeenCalled();
+      expect(bcrypt.hash).toHaveBeenCalled();
+      expect(mockDbInsert).toHaveBeenCalledWith(users);
+      expect(mockDbInsertValuesFn).toHaveBeenCalled(); // values() should have been called
+      expect(mockDbInsertReturningFn).toHaveBeenCalled(); // returning() should have been called (and rejected)
+    });
+  });
+
+  // --- signInWithCredentials Tests ---
+  describe("signInWithCredentials", () => {
+    const validLoginData = {
+      email: "test@example.com",
+      password: "password123",
+    };
+
+    it("should successfully sign in and return redirect path", async () => {
+      vi.mocked(signIn).mockResolvedValue(undefined);
+
+      const result = await signInWithCredentials(validLoginData);
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe("Login successful!");
+      expect(result.redirectTo).toBe("/dashboard");
+      expect(signIn).toHaveBeenCalledWith("credentials", {
+        email: validLoginData.email,
+        password: validLoginData.password,
+        redirect: false,
+      });
+    });
+
+    it("should return error for invalid credentials via AuthError", async () => {
+      const credentialsError = new AuthError("CredentialsSignin");
+      vi.mocked(signIn).mockRejectedValue(credentialsError);
+      // Suppress console error for expected AuthError
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+
+      const result = await signInWithCredentials(validLoginData);
+
+      consoleErrorSpy.mockRestore(); // Restore console.error
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Invalid email or password."); // <-- Assertion should now pass
+      expect(signIn).toHaveBeenCalledWith("credentials", expect.anything());
+    });
+
+    it("should return validation error for invalid input", async () => {
+      const invalidData = { email: "not-an-email", password: "123" };
+      const result = await signInWithCredentials(invalidData);
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Invalid login details.");
+      expect(signIn).not.toHaveBeenCalled();
+    });
+
+    it("should return generic error for unexpected errors during signIn", async () => {
+      const genericError = new Error("Something went wrong");
+      vi.mocked(signIn).mockRejectedValue(genericError);
+      // Suppress console error for expected generic error
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+
+      const result = await signInWithCredentials(validLoginData);
+
+      consoleErrorSpy.mockRestore(); // Restore console.error
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("An unexpected error occurred.");
+      expect(signIn).toHaveBeenCalled();
+    });
+  });
+
+  // --- requestPasswordReset Tests ---
+  describe("requestPasswordReset", () => {
+    const validEmailData = { email: "test@example.com" };
+    const mockUser = {
+      id: "user-123",
+      email: validEmailData.email,
+      firstName: "Test",
+    };
+    const successMessage =
+      "If an account with this email exists, a password reset link has been sent.";
+
+    it("should attempt token generation and email sending if user exists", async () => {
+      vi.mocked(mockUserFindFirst).mockResolvedValue(mockUser as any);
+      // Ensure delete mock resolves (default in beforeEach is fine)
+      // Ensure insert mock resolves (default in beforeEach is fine)
+      // Ensure email mock resolves (default in beforeEach is fine)
+
+      const result = await requestPasswordReset(validEmailData);
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe(successMessage);
+      expect(mockDbDelete).toHaveBeenCalledWith(passwordResetTokens);
+      expect(mockDbDeleteWhereFn).toHaveBeenCalledWith(
+        eq(passwordResetTokens.userId, mockUser.id)
+      );
+      expect(mockDbInsert).toHaveBeenCalledWith(passwordResetTokens);
+      // --- Assert on the correct mock ---
+      expect(mockDbInsertValuesFn).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // <-- Assert on values mock
+          userId: mockUser.id,
+          token: expect.any(String),
+          expiresAt: expect.any(Date),
+        })
+      );
+      expect(mockDbInsertReturningFn).toHaveBeenCalled(); // Ensure returning was called (even if result unused)
+      expect(mockSendEmail).toHaveBeenCalledOnce();
+      expect(mockSendEmail).toHaveBeenCalledWith(
+        expect.objectContaining({
+          to: [validEmailData.email],
+          subject: "Reset Your Marketplace Password",
+          html: expect.stringContaining(
+            "http://localhost:3000/reset-password?token="
+          ),
+        })
+      );
+    });
+
+    it("should return success without DB/email operations if user does not exist", async () => {
+      vi.mocked(mockUserFindFirst).mockResolvedValue(undefined);
+
+      const result = await requestPasswordReset(validEmailData);
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe(successMessage);
+      expect(mockDbDelete).not.toHaveBeenCalled();
+      expect(mockDbInsert).not.toHaveBeenCalled();
+      expect(mockSendEmail).not.toHaveBeenCalled();
+    });
+
+    it("should return success even if email sending fails (but logs error)", async () => {
+      vi.mocked(mockUserFindFirst).mockResolvedValue(mockUser as any);
+      const emailError = { message: "Failed", name: "EmailError" };
+      vi.mocked(mockSendEmail).mockResolvedValueOnce({
+        data: null,
+        error: emailError as any,
+      }); // Cast error type if needed
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+
+      const result = await requestPasswordReset(validEmailData);
+
+      consoleErrorSpy.mockRestore();
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe(successMessage);
+      expect(mockDbDelete).toHaveBeenCalled();
+      expect(mockDbInsert).toHaveBeenCalled(); // Insert should still be called
+      // --- Assert on the correct mock ---
+      expect(mockDbInsertValuesFn).toHaveBeenCalled(); // <-- Assert on values mock
+      expect(mockSendEmail).toHaveBeenCalledOnce();
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        "Error sending password reset email:",
+        emailError
+      );
+    });
+
+    it("should return success if RESEND_API_KEY is missing (but logs error)", async () => {
+      delete process.env.RESEND_API_KEY;
+      vi.mocked(mockUserFindFirst).mockResolvedValue(mockUser as any);
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+
+      const result = await requestPasswordReset(validEmailData);
+
+      consoleErrorSpy.mockRestore();
+
+      expect(result.success).toBe(true);
+      expect(result.message).toBe(successMessage);
+      expect(mockDbDelete).toHaveBeenCalled();
+      expect(mockDbInsert).toHaveBeenCalled(); // Insert should still be called
+      // --- Assert on the correct mock ---
+      expect(mockDbInsertValuesFn).toHaveBeenCalled(); // <-- Assert on values mock
+      expect(mockSendEmail).not.toHaveBeenCalled();
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Resend API Key not configured")
+      );
+    });
+
+    it("should return validation error for invalid email", async () => {
+      const invalidData = { email: "invalid" };
+      const result = await requestPasswordReset(invalidData);
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Invalid email address.");
+      expect(mockUserFindFirst).not.toHaveBeenCalled();
+    });
+  });
+
+  // --- resetPassword Tests ---
+  describe("resetPassword", () => {
+    const validToken = "valid-reset-token";
+    const validPasswordData = {
+      token: validToken,
+      password: "newPassword123",
+      confirmPassword: "newPassword123",
+    };
+    const mockToken = {
+      id: "token-id",
+      userId: "user-123",
+      token: validToken,
+      expiresAt: new Date(Date.now() + 3600 * 1000),
+    };
+    const mockUser = { id: "user-123", email: "test@example.com" };
+
+    it("should successfully reset password with valid token", async () => {
+      vi.mocked(mockTokenFindFirst).mockResolvedValue(mockToken as any);
+      vi.mocked(mockUserFindFirst).mockResolvedValue(mockUser as any);
+      // Ensure update/delete mocks resolve (default is fine)
+
+      const result = await resetPassword(validPasswordData);
+
+      expect(result.success).toBe(true);
+      expect(result.message).toContain("Password has been reset successfully");
+      expect(mockTokenFindFirst).toHaveBeenCalledWith({
+        where: eq(passwordResetTokens.token, validToken),
+      });
+      expect(mockUserFindFirst).toHaveBeenCalledWith({
+        where: eq(users.id, mockToken.userId),
+      });
+      expect(bcrypt.hash).toHaveBeenCalledWith(validPasswordData.password, 10);
+      expect(mockDbUpdate).toHaveBeenCalledWith(users);
+      // --- Assert on the correct mocks ---
+      expect(mockDbUpdateSetFn).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // <-- Assert on set mock
+          passwordHash: "mock-hashed-password",
+          updatedAt: expect.any(Date),
+        })
+      );
+      expect(mockDbUpdateWhereFn).toHaveBeenCalledWith(
+        eq(users.id, mockUser.id)
+      ); // <-- Assert on where mock
+      expect(mockDbDelete).toHaveBeenCalledWith(passwordResetTokens);
+      expect(mockDbDeleteWhereFn).toHaveBeenCalledWith(
+        eq(passwordResetTokens.id, mockToken.id)
+      ); // <-- Assert on where mock
+    });
+
+    it("should return error for invalid token", async () => {
+      vi.mocked(mockTokenFindFirst).mockResolvedValue(undefined);
+      const result = await resetPassword(validPasswordData);
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Invalid or expired reset token.");
+    });
+
+    it("should return error for expired token", async () => {
+      const expiredToken = {
+        ...mockToken,
+        expiresAt: new Date(Date.now() - 1000),
+      };
+      vi.mocked(mockTokenFindFirst).mockResolvedValue(expiredToken as any);
+      const result = await resetPassword(validPasswordData);
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Reset token has expired.");
+      expect(mockDbDelete).toHaveBeenCalledWith(passwordResetTokens); // Ensure delete was called
+      expect(mockDbDeleteWhereFn).toHaveBeenCalledWith(
+        eq(passwordResetTokens.id, expiredToken.id)
+      );
+    });
+
+    it("should return error if user associated with token is not found", async () => {
+      vi.mocked(mockTokenFindFirst).mockResolvedValue(mockToken as any);
+      vi.mocked(mockUserFindFirst).mockResolvedValue(undefined);
+      const result = await resetPassword(validPasswordData);
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("User not found for this token.");
+    });
+
+    it("should return validation error if passwords do not match", async () => {
+      const invalidData = {
+        ...validPasswordData,
+        confirmPassword: "differentPassword",
+      };
+      const result = await resetPassword(invalidData);
+      expect(result.success).toBe(false);
+      expect(result.message).toBe("Passwords do not match.");
+    });
+
+    it("should return error if database update fails", async () => {
+      vi.mocked(mockTokenFindFirst).mockResolvedValue(mockToken as any);
+      vi.mocked(mockUserFindFirst).mockResolvedValue(mockUser as any);
+      const dbError = new Error("DB update failed");
+      // --- Mock the final step of update to reject ---
+      vi.mocked(mockDbUpdateWhereFn).mockRejectedValueOnce(dbError); // <-- Mock where to reject
+      // Suppress console error for expected DB failure
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+
+      const result = await resetPassword(validPasswordData);
+
+      consoleErrorSpy.mockRestore(); // Restore console.error
+
+      expect(result.success).toBe(false);
+      expect(result.message).toBe(
+        "An unexpected error occurred while resetting the password."
+      );
+      expect(mockDbUpdate).toHaveBeenCalledWith(users);
+      expect(mockDbUpdateSetFn).toHaveBeenCalled(); // set() should have been called
+      expect(mockDbUpdateWhereFn).toHaveBeenCalled(); // where() should have been called (and rejected)
+      expect(mockDbDelete).not.toHaveBeenCalled(); // Token deletion shouldn't happen
+    });
+  });
+});
 
 
 // ---- File: 0001_amazing_gamora.sql ----
@@ -10789,113 +11553,6 @@ export const {
 });
 
 
-// ---- File: page.tsx ----
-
-import Image from "next/image";
-
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
-
-
 // ---- File: route.ts ----
 
 import { NextRequest, NextResponse } from "next/server";
@@ -11639,6 +12296,90 @@ export {
 }
 
 
+// ---- File: package.json ----
+
+{
+  "name": "marketplace-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:seed:admin": "tsx scripts/seed-admin.ts"
+  },
+  "dependencies": {
+    "@auth/drizzle-adapter": "^1.8.0",
+    "@hookform/resolvers": "^4.1.3",
+    "@radix-ui/react-alert-dialog": "^1.1.6",
+    "@radix-ui/react-avatar": "^1.1.3",
+    "@radix-ui/react-checkbox": "^1.1.4",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-radio-group": "^1.2.3",
+    "@radix-ui/react-scroll-area": "^1.2.3",
+    "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-separator": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@tanstack/react-table": "^8.21.2",
+    "bcryptjs": "^3.0.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.41.0",
+    "lucide-react": "^0.485.0",
+    "next": "15.2.4",
+    "next-auth": "^5.0.0-beta.25",
+    "next-themes": "^0.4.6",
+    "postgres": "^3.4.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.55.0",
+    "resend": "^4.2.0",
+    "sonner": "^2.0.2",
+    "stripe": "^17.7.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "^1.2.5",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^3.1.1",
+    "@vitest/ui": "^3.1.1",
+    "cypress": "^14.2.1",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.6",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.4",
+    "jsdom": "^26.0.0",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.1",
+    "whatwg-fetch": "^3.6.20"
+  }
+}
+
+
 // ---- File: ProfileForm.tsx ----
 
 "use client";
@@ -11899,6 +12640,100 @@ export function ApprovalList({ users }: ApprovalListProps) {
 }
 
 
+// ---- File: middleware.ts ----
+
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import type { NextAuthConfig } from "next-auth";
+
+// Initialize NextAuth with the shared configuration
+const { auth } = NextAuth(authConfig as NextAuthConfig);
+
+// --- Custom In-Memory Rate Limiter ---
+const requestTimestamps = new Map<string, number[]>();
+const RATE_LIMIT_WINDOW_MS = 10 * 1000; // 10 seconds
+const RATE_LIMIT_MAX_REQUESTS = 10;
+
+function isRateLimited(ip: string): { limited: boolean; resetTime?: number } {
+  const now = Date.now();
+  const timestamps = requestTimestamps.get(ip) ?? [];
+
+  // Filter out timestamps older than the window
+  const recentTimestamps = timestamps.filter(
+    (ts) => now - ts < RATE_LIMIT_WINDOW_MS
+  );
+
+  if (recentTimestamps.length >= RATE_LIMIT_MAX_REQUESTS) {
+    // Limit exceeded
+    requestTimestamps.set(ip, recentTimestamps); // Keep the recent timestamps
+    const resetTime = (recentTimestamps[0] ?? now) + RATE_LIMIT_WINDOW_MS; // Estimate reset time
+    return { limited: true, resetTime };
+  } else {
+    // Limit not exceeded
+    recentTimestamps.push(now);
+    requestTimestamps.set(ip, recentTimestamps);
+    return { limited: false };
+  }
+}
+// Optional: Add cleanup mechanism here if needed
+
+// Combined Middleware Function wrapped by NextAuth's auth handler
+export default auth(async (request: NextRequest) => {
+  // --- Rate Limiting ---
+  const ip = request.headers.get("x-forwarded-for") ?? "127.0.0.1";
+  const { limited, resetTime } = isRateLimited(ip);
+
+  if (limited) {
+    console.warn(`Rate limit exceeded for IP: ${ip}`);
+    const headers: Record<string, string> = {};
+    if (resetTime) {
+      headers["Retry-After"] = Math.ceil(
+        (resetTime - Date.now()) / 1000
+      ).toString(); // Seconds until reset
+      headers["X-RateLimit-Reset"] = new Date(resetTime).toISOString();
+    }
+    return new NextResponse("Too Many Requests", { status: 429, headers });
+  }
+
+  // --- Authentication (handled by `auth()` wrapper) ---
+  // If rate limit check passes, return undefined to let the `auth()` wrapper
+  // proceed with its authentication logic based on `authConfig`.
+  return undefined;
+});
+
+// Define which routes the middleware should apply to
+export const config = {
+  // Matcher updated to include API routes but exclude specific ones like Stripe webhook
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|api/webhooks/stripe).*)",
+  ],
+  // Explanation of matcher:
+  // - `^`: Start of the string
+  // - `/`: Match the root path
+  // - `(`: Start of a group
+  // - `?!`: Negative lookahead (ensure the following pattern doesn't match)
+  //   - `api`: Matches `/api`
+  //   - `|`: OR
+  //   - `_next/static`: Matches Next.js static files
+  //   - `|`: OR
+  //   - `_next/image`: Matches Next.js image optimization files
+  //   - `|`: OR
+  //   - `favicon.ico`: Matches the favicon file
+  //   - `|`: OR
+  //   - `login`: Matches `/login`
+  //   - `|`: OR
+  //   - `register`: Matches `/register`
+  // - `)`: End of the negative lookahead group
+  // - `.*`: Match any character (except newline) zero or more times
+  // - `)`: End of the main group
+  // This effectively matches all routes EXCEPT the ones specified in the negative lookahead.
+  // The `authorized` callback in auth.config.ts then specifically checks if the matched route
+  // starts with `/dashboard` and if the user is logged in.
+};
+
+
 // ---- File: LoginForm.tsx ----
 
 "use client";
@@ -12043,86 +12878,6 @@ export function LoginForm() {
       </CardContent>
     </Card>
   );
-}
-
-
-// ---- File: package.json ----
-
-{
-  "name": "marketplace-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "vitest",
-    "db:generate": "drizzle-kit generate",
-    "db:push": "drizzle-kit push",
-    "db:seed:admin": "tsx scripts/seed-admin.ts"
-  },
-  "dependencies": {
-    "@auth/drizzle-adapter": "^1.8.0",
-    "@hookform/resolvers": "^4.1.3",
-    "@radix-ui/react-alert-dialog": "^1.1.6",
-    "@radix-ui/react-avatar": "^1.1.3",
-    "@radix-ui/react-checkbox": "^1.1.4",
-    "@radix-ui/react-dialog": "^1.1.6",
-    "@radix-ui/react-dropdown-menu": "^2.1.6",
-    "@radix-ui/react-label": "^2.1.2",
-    "@radix-ui/react-radio-group": "^1.2.3",
-    "@radix-ui/react-scroll-area": "^1.2.3",
-    "@radix-ui/react-select": "^2.1.6",
-    "@radix-ui/react-separator": "^1.1.2",
-    "@radix-ui/react-slot": "^1.1.2",
-    "@tanstack/react-table": "^8.21.2",
-    "bcryptjs": "^3.0.2",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "drizzle-orm": "^0.41.0",
-    "lucide-react": "^0.485.0",
-    "next": "15.2.4",
-    "next-auth": "^5.0.0-beta.25",
-    "next-themes": "^0.4.6",
-    "postgres": "^3.4.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-hook-form": "^7.55.0",
-    "resend": "^4.2.0",
-    "sonner": "^2.0.2",
-    "stripe": "^17.7.0",
-    "tailwind-merge": "^3.0.2",
-    "tailwindcss-animate": "^1.0.7",
-    "tw-animate-css": "^1.2.5",
-    "uuid": "^11.1.0",
-    "zod": "^3.24.2"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/mime-types": "^2.1.4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@types/uuid": "^10.0.0",
-    "@vitest/coverage-v8": "^3.1.1",
-    "@vitest/ui": "^3.1.1",
-    "cypress": "^14.2.1",
-    "dotenv": "^16.4.7",
-    "drizzle-kit": "^0.30.6",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.4",
-    "jsdom": "^26.0.0",
-    "tailwindcss": "^4",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.19.3",
-    "typescript": "^5",
-    "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.1.1",
-    "whatwg-fetch": "^3.6.20"
-  }
 }
 
 
@@ -12451,6 +13206,87 @@ export function AddToCartButton({
           : "Select Variant"
         : "Add to Cart"}
     </Button>
+  );
+}
+
+
+// ---- File: Navbar.tsx ----
+
+"use client";
+
+import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
+import { Button } from "../ui/button"; // Adjusted path
+import { CartSheet } from "../cart/CartSheet"; // Adjusted path
+import { LogOut, LayoutDashboard, ShoppingBag, HomeIcon } from "lucide-react"; // Import icons
+
+export function Navbar() {
+  const { data: session, status } = useSession();
+  const isLoading = status === "loading";
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: "/" }); // Redirect to home after sign out
+  };
+
+  return (
+    <header className="sticky top-0 z-40 w-full border-b bg-background">
+      <div className="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+        {/* Logo/Brand */}
+        <Link href="/" className="flex items-center space-x-2">
+          <ShoppingBag className="h-6 w-6" />
+          <span className="font-bold">Marketplace</span>
+        </Link>
+
+        {/* Navigation Links - Centered */}
+        <nav className="hidden flex-grow items-center justify-center space-x-6 text-sm font-medium md:flex">
+          <Link
+            href="/"
+            className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center" // Added flex items-center
+          >
+            <HomeIcon className="h-5 w-5 mr-1 inline-block" /> Home
+          </Link>
+          <Link
+            href="/products"
+            className="transition-colors hover:text-foreground/80 text-foreground/60"
+          >
+            Products
+          </Link>
+          {/* Add other links like Categories later if needed */}
+        </nav>
+
+        {/* Right Side Actions - Pushed to the right */}
+        <div className="flex items-center justify-end space-x-2 md:space-x-4">
+          {" "}
+          {/* Adjusted spacing */}
+          {isLoading ? (
+            <div className="h-9 w-20 animate-pulse rounded-md bg-muted"></div> // Skeleton loader
+          ) : session?.user ? (
+            <>
+              <Link href="/dashboard">
+                <Button variant="ghost" size="sm">
+                  <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
+                </Button>
+              </Link>
+              <Button variant="ghost" size="sm" onClick={handleSignOut}>
+                <LogOut className="mr-2 h-4 w-4" /> Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button variant="ghost" size="sm">
+                  Login
+                </Button>
+              </Link>
+              <Link href="/register">
+                <Button size="sm">Register</Button>
+              </Link>
+            </>
+          )}
+          <CartSheet />
+        </div>
+      </div>
+    </header>
   );
 }
 
@@ -12834,6 +13670,82 @@ export async function generateMetadata(
 }
 
 
+// ---- File: utils.test.ts ----
+
+import { describe, it, expect } from "vitest";
+import { cn, generateSlug, formatPrice } from "./utils"; // Assuming utils.ts is in the same directory
+
+describe("cn utility function", () => {
+  it("should merge class names correctly", () => {
+    expect(cn("bg-red-500", "text-white")).toBe("bg-red-500 text-white");
+  });
+
+  it("should handle conditional classes", () => {
+    expect(cn("base", { conditional: true })).toBe("base conditional");
+    expect(cn("base", { conditional: false })).toBe("base");
+  });
+
+  it("should override conflicting Tailwind classes", () => {
+    // Example: p-4 overrides p-2 when merged later
+    expect(cn("p-2", "p-4")).toBe("p-4");
+    // Example: text-lg overrides text-base
+    expect(cn("text-base font-bold", "text-lg")).toBe("font-bold text-lg");
+  });
+
+  it("should handle various input types", () => {
+    expect(
+      cn("a", null, undefined, "b", { c: true, d: false }, ["e", "f"])
+    ).toBe("a b c e f");
+  });
+});
+
+describe("generateSlug utility function", () => {
+  it("should convert basic strings to slugs", () => {
+    expect(generateSlug("Hello World")).toBe("hello-world");
+  });
+
+  it("should handle strings with special characters", () => {
+    expect(generateSlug("Product Title with $ymbols!")).toBe(
+      "product-title-with-ymbols"
+    );
+  });
+
+  it("should handle multiple spaces and leading/trailing spaces", () => {
+    expect(generateSlug("  Extra   Spaces  ")).toBe("extra-spaces");
+  });
+
+  it("should handle empty strings", () => {
+    expect(generateSlug("")).toBe("");
+  });
+
+  it("should handle strings with only special characters", () => {
+    expect(generateSlug("!@#$%^&*()")).toBe("");
+  });
+});
+
+describe("formatPrice utility function", () => {
+  it("should format positive integers correctly", () => {
+    expect(formatPrice(1999)).toBe("$19.99");
+    expect(formatPrice(100)).toBe("$1.00");
+    expect(formatPrice(50)).toBe("$0.50");
+    expect(formatPrice(123456)).toBe("$1,234.56");
+  });
+
+  it("should format zero correctly", () => {
+    expect(formatPrice(0)).toBe("$0.00");
+  });
+
+  // Optional: Decide if negative prices are possible/how to handle
+  // it('should handle negative integers if necessary', () => {
+  //   expect(formatPrice(-500)).toBe('-$5.00');
+  // });
+
+  it("should handle large numbers", () => {
+    expect(formatPrice(100000000)).toBe("$1,000,000.00");
+  });
+});
+
+
 // ---- File: QuestionForm.tsx ----
 
 "use client";
@@ -13113,6 +14025,72 @@ async function seedAdmin() {
 }
 
 seedAdmin();
+
+
+// ---- File: page.tsx ----
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ProductCard } from "@/components/products/ProductCard";
+import { getPublicProducts } from "@/actions/product.actions";
+
+export default async function HomePage() {
+  // Fetch a selection of products (e.g., latest 8)
+  const latestProducts = await getPublicProducts(8);
+
+  return (
+    <div className="flex flex-col min-h-[calc(100vh-theme(spacing.16))]">
+      {/* Adjust min-height based on Navbar height */}
+      {/* Hero Section */}
+      <section className="w-full py-16 md:py-20 bg-gradient-to-r from-muted/50 to-muted">
+        {" "}
+        {/* Adjusted padding */}
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <div className="space-y-4">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+              Discover Unique Products
+            </h1>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+              Browse and buy from independent vendors in our curated
+              marketplace.
+            </p>
+            <Button asChild size="lg">
+              <Link href="/products">Shop Now</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+      {/* Featured Products Section */}
+      <section className="w-full py-16 md:py-20">
+        {" "}
+        {/* Adjusted padding */}
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
+            Featured Products
+          </h2>
+          {latestProducts.length === 0 ? (
+            <p className="text-center text-muted-foreground">
+              No products available yet. Check back soon!
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {latestProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
+          {latestProducts.length > 0 && (
+            <div className="mt-12 text-center">
+              <Button variant="outline" asChild>
+                <Link href="/products">View All Products</Link>
+              </Button>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
 
 
 // ---- File: page.tsx ----
@@ -13761,48 +14739,6 @@ export default async function EditProductPage({
 }
 
 
-// ---- File: middleware.ts ----
-
-import NextAuth from "next-auth";
-import { authConfig } from "./auth.config";
-
-// Initialize NextAuth with the shared configuration
-const { auth } = NextAuth(authConfig);
-
-// Export the middleware function, applying the auth logic
-// The `authorized` callback in authConfig handles the redirection logic
-export default auth;
-
-// Define which routes the middleware should apply to
-export const config = {
-  // Matcher to protect specific routes
-  // This example protects all routes under /dashboard
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|login|register).*)"],
-  // Explanation of matcher:
-  // - `^`: Start of the string
-  // - `/`: Match the root path
-  // - `(`: Start of a group
-  // - `?!`: Negative lookahead (ensure the following pattern doesn't match)
-  //   - `api`: Matches `/api`
-  //   - `|`: OR
-  //   - `_next/static`: Matches Next.js static files
-  //   - `|`: OR
-  //   - `_next/image`: Matches Next.js image optimization files
-  //   - `|`: OR
-  //   - `favicon.ico`: Matches the favicon file
-  //   - `|`: OR
-  //   - `login`: Matches `/login`
-  //   - `|`: OR
-  //   - `register`: Matches `/register`
-  // - `)`: End of the negative lookahead group
-  // - `.*`: Match any character (except newline) zero or more times
-  // - `)`: End of the main group
-  // This effectively matches all routes EXCEPT the ones specified in the negative lookahead.
-  // The `authorized` callback in auth.config.ts then specifically checks if the matched route
-  // starts with `/dashboard` and if the user is logged in.
-};
-
-
 // ---- File: badge.tsx ----
 
 import * as React from "react"
@@ -14049,6 +14985,105 @@ function RadioGroupItem({
 export { RadioGroup, RadioGroupItem }
 
 
+// ---- File: layout.tsx ----
+
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { SessionProvider } from "next-auth/react"; // Import SessionProvider
+import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { CartProvider } from "@/context/CartContext";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Marketplace App", // Updated title
+  description: "A multi-vendor marketplace",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  // Construct className using string concatenation
+  const bodyClassName = [
+    geistSans.variable,
+    geistMono.variable,
+    "antialiased",
+    "flex",
+    "flex-col",
+    "min-h-screen",
+  ].join(" ");
+
+  return (
+    <html lang="en">
+      <body className={bodyClassName}>
+        {/* SessionProvider needs to wrap components using useSession */}
+        <SessionProvider>
+          <CartProvider>
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Toaster richColors />
+            <Footer />
+          </CartProvider>
+        </SessionProvider>
+      </body>
+    </html>
+  );
+}
+
+
+// ---- File: utils.ts ----
+
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+/**
+ * Generates a URL-friendly slug from a string.
+ * @param str The string to slugify.
+ * @returns The slugified string.
+ */
+export function generateSlug(str: string): string {
+  if (!str) return ""; // Handle empty or null input
+
+  return str
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "") // Remove invalid chars (keep spaces and hyphens)
+    .trim() // Trim leading/trailing whitespace (including spaces converted from invalid chars)
+    .replace(/\s+/g, "-") // Replace sequences of spaces with a single hyphen
+    .replace(/-+/g, "-"); // Replace sequences of hyphens with a single hyphen
+}
+
+/**
+ * Formats a price in cents into a currency string (e.g., $10.50).
+ * Assumes USD for simplicity, adjust locale and currency as needed.
+ * @param priceInCents The price in cents.
+ * @returns The formatted price string.
+ */
+export function formatPrice(priceInCents: number): string {
+  const priceInDollars = priceInCents / 100;
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(priceInDollars);
+}
+
+
 // ---- File: page.tsx ----
 
 import { getWithdrawalRequests } from "@/actions/user.actions";
@@ -14204,58 +15239,6 @@ export default defineConfig({
   verbose: true, // Enable verbose logging during migrations
   strict: true, // Enable strict mode for schema checking
 });
-
-
-// ---- File: layout.tsx ----
-
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
-import { Footer } from "@/components/layout/Footer";
-import { CartProvider } from "@/context/CartContext";
-import { CartSheet } from "@/components/cart/CartSheet"; // Import CartSheet
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "Generated by create next app",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <CartProvider>
-          {/* TODO: Add a proper Header component later */}
-          <div className="fixed top-4 right-4 z-50">
-            {" "}
-            {/* Basic positioning */}
-            <CartSheet />
-          </div>
-          {children}
-          <Toaster richColors />
-          <Footer />
-        </CartProvider>
-      </body>
-    </html>
-  );
-}
 
 
 // ---- File: checkbox.tsx ----
@@ -14424,42 +15407,6 @@ function AvatarFallback({
 }
 
 export { Avatar, AvatarImage, AvatarFallback }
-
-
-// ---- File: utils.ts ----
-
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-/**
- * Generates a URL-friendly slug from a string.
- * @param str The string to slugify.
- * @returns The slugified string.
- */
-export function generateSlug(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/ /g, "-") // Replace spaces with hyphens
-    .replace(/[^\w-]+/g, ""); // Remove all non-word chars except hyphens
-}
-
-/**
- * Formats a price in cents into a currency string (e.g., $10.50).
- * Assumes USD for simplicity, adjust locale and currency as needed.
- * @param priceInCents The price in cents.
- * @returns The formatted price string.
- */
-export function formatPrice(priceInCents: number): string {
-  const priceInDollars = priceInCents / 100;
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(priceInDollars);
-}
 
 
 // ---- File: input.tsx ----
@@ -14668,6 +15615,28 @@ export default function ResetPasswordPage({
     </Suspense>
   );
 }
+
+
+// ---- File: vitest.config.ts ----
+
+// vitest.config.ts
+import { defineConfig } from "vitest/config";
+import tsconfigPaths from "vite-tsconfig-paths";
+
+export default defineConfig({
+  plugins: [tsconfigPaths()], // Resolves tsconfig.json path aliases like @/lib [6, 8, 10],
+  test: {
+    environment: "jsdom", // Simulates browser environment for DOM APIs [1, 5, 6]
+    globals: true, // Makes describe, it, expect, vi globally available [1, 5, 6]
+    include: ["**/*.{test,spec}.?(c|m)[jt]s?(x)"], // Default pattern for test files [2, 6]
+    setupFiles: ["./vitest.setup.ts"], // Specifies global setup file [1, 5, 6]
+    server: {
+      deps: {
+        inline: ["next"],
+      },
+    },
+  },
+});
 
 
 // ---- File: resend.ts ----
@@ -14949,6 +15918,24 @@ export { Label }
   ]
 }
 
+// ---- File: vitest.setup.ts ----
+
+// vitest.setup.ts
+import { afterEach, vi } from "vitest";
+import { cleanup } from "@testing-library/react";
+import "@testing-library/jest-dom/vitest"; // Extends expect with DOM matchers
+
+// Run cleanup after each test case (e.g., clearing jsdom)
+afterEach(() => {
+  cleanup();
+});
+
+// Clear mock history after each test case
+afterEach(() => {
+  vi.clearAllMocks(); // or vi.resetAllMocks() depending on desired behavior
+});
+
+
 // ---- File: eslint.config.mjs ----
 
 import { dirname } from "path";
@@ -15052,6 +16039,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  transpilePackages: ["next-auth"],
 };
 
 export default nextConfig;

@@ -82,6 +82,7 @@ export function LoginForm() {
                       placeholder="john.doe@example.com"
                       {...field}
                       disabled={isPending}
+                      data-testid="login-email-input" // Added data-testid
                     />
                   </FormControl>
                   <FormMessage />
@@ -104,6 +105,7 @@ export function LoginForm() {
                       placeholder="********"
                       {...field}
                       disabled={isPending}
+                      data-testid="login-password-input" // Added data-testid
                     />
                   </FormControl>
                   <div className="text-right text-sm">
@@ -121,16 +123,25 @@ export function LoginForm() {
 
             {/* Display Error Message */}
             {error && (
-              <div className="p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700">
+              <div
+                className="p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700"
+                data-testid="login-error-message" // Added data-testid
+              >
                 {error}
               </div>
             )}
 
-            <Button type="submit" className="w-full" disabled={isPending}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isPending}
+              data-testid="login-submit-button" // Added data-testid
+            >
               {isPending ? "Logging in..." : "Login"}
             </Button>
+            {}
             <div className="text-center text-sm">
-              Don't have an account?{" "}
+              Do not have an account?{" "}
               <Link href="/register" className="underline hover:text-primary">
                 Register
               </Link>

@@ -82,13 +82,18 @@ export function QuestionForm({ productId }: QuestionFormProps) {
                   {...field}
                   rows={3}
                   disabled={isLoading}
+                  data-testid="question-textarea" // Added data-testid
                 />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isLoading}>
+        <Button
+          type="submit"
+          disabled={isLoading}
+          data-testid="question-submit-button" // Added data-testid
+        >
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           Submit Question
         </Button>

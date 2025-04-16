@@ -111,7 +111,12 @@ export function CartSheet() {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon" className="relative">
+        <Button
+          variant="outline"
+          size="icon"
+          className="relative"
+          data-testid="navbar-cart-button" // Added data-testid
+        >
           <ShoppingCart className="h-5 w-5" />
           {cartCount > 0 && (
             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
@@ -131,7 +136,10 @@ export function CartSheet() {
           {isLoadingDetails ? ( // Use renamed state
             <p className="text-center py-10">Loading cart details...</p> // Basic loading state
           ) : detailedItems.length === 0 ? (
-            <p className="text-center text-muted-foreground py-10">
+            <p
+              className="text-center text-muted-foreground py-10"
+              data-testid="cart-sheet-empty-message" // Added data-testid
+            >
               Your cart is empty.
             </p>
           ) : (
@@ -140,6 +148,7 @@ export function CartSheet() {
                 <div
                   key={item.productVariantId}
                   className="flex gap-4 items-start"
+                  data-testid={`cart-item-${item.productVariantId}`} // Added data-testid
                 >
                   <Image
                     src={item.imageUrl || "/placeholder.svg"}
@@ -177,12 +186,14 @@ export function CartSheet() {
                         }
                         className="h-8 w-16 text-center"
                         aria-label={`Quantity for ${item.title}`}
+                        data-testid={`cart-item-quantity-input-${item.productVariantId}`} // Added data-testid
                       />
                       <Button
                         variant="ghost"
                         size="icon"
                         onClick={() => removeFromCart(item.productVariantId)}
                         aria-label={`Remove ${item.title}`}
+                        data-testid={`cart-item-remove-button-${item.productVariantId}`} // Added data-testid
                       >
                         <Trash2 className="h-4 w-4 text-destructive" />
                       </Button>
@@ -210,6 +221,7 @@ export function CartSheet() {
                   placeholder="Enter code"
                   disabled={isCheckingOut}
                   className="h-9"
+                  data-testid="cart-sheet-affiliate-code-input" // Added data-testid
                 />
               </div>
 
@@ -235,6 +247,7 @@ export function CartSheet() {
                   isCheckingOut ||
                   hasPhysicalItems /* && !selectedAddressId */
                 } // Disable during loading, checkout, or if address needed but not selected
+                data-testid="cart-sheet-checkout-button" // Added data-testid
               >
                 {isCheckingOut ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -246,6 +259,7 @@ export function CartSheet() {
                   variant="outline"
                   className="w-full"
                   onClick={clearCart}
+                  data-testid="cart-sheet-clear-button" // Added data-testid
                 >
                   Clear Cart
                 </Button>

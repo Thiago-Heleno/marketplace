@@ -28,12 +28,14 @@ export function Navbar() {
           <Link
             href="/"
             className="transition-colors hover:text-foreground/80 text-foreground/60 flex items-center" // Added flex items-center
+            data-testid="navbar-home-link" // Added data-testid
           >
             <HomeIcon className="h-5 w-5 mr-1 inline-block" /> Home
           </Link>
           <Link
             href="/products"
             className="transition-colors hover:text-foreground/80 text-foreground/60"
+            data-testid="navbar-products-link" // Added data-testid
           >
             Products
           </Link>
@@ -48,28 +50,43 @@ export function Navbar() {
             <div className="h-9 w-20 animate-pulse rounded-md bg-muted"></div> // Skeleton loader
           ) : session?.user ? (
             <>
-              <Link href="/dashboard">
+              <Link href="/dashboard" data-testid="navbar-dashboard-link">
+                {" "}
+                {/* Added data-testid */}
                 <Button variant="ghost" size="sm">
                   <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
                 </Button>
               </Link>
-              <Button variant="ghost" size="sm" onClick={handleSignOut}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleSignOut}
+                data-testid="navbar-logout-button" // Added data-testid
+              >
                 <LogOut className="mr-2 h-4 w-4" /> Logout
               </Button>
             </>
           ) : (
             <>
               <Link href="/login">
-                <Button variant="ghost" size="sm">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  data-testid="navbar-login-button" // Added data-testid
+                >
                   Login
                 </Button>
               </Link>
               <Link href="/register">
-                <Button size="sm">Register</Button>
+                <Button size="sm" data-testid="navbar-register-button">
+                  {" "}
+                  {/* Added data-testid */}
+                  Register
+                </Button>
               </Link>
             </>
           )}
-          <CartSheet />
+          <CartSheet /> {/* Cart button is inside CartSheet */}
         </div>
       </div>
     </header>

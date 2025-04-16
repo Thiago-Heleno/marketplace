@@ -58,6 +58,7 @@ function UserApprovalActions({ userId }: { userId: string }) {
         onClick={handleApprove}
         disabled={isPending}
         className="text-green-600 border-green-600 hover:bg-green-50 hover:text-green-700"
+        data-testid={`approve-user-button-${userId}`} // Added data-testid
       >
         {isApproving ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -71,6 +72,7 @@ function UserApprovalActions({ userId }: { userId: string }) {
         size="sm"
         onClick={handleReject}
         disabled={isPending}
+        data-testid={`reject-user-button-${userId}`} // Added data-testid
       >
         {isRejecting ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -95,7 +97,10 @@ export function ApprovalList({ users }: ApprovalListProps) {
 
   if (!users || users.length === 0) {
     return (
-      <p className="text-center text-muted-foreground py-4">
+      <p
+        className="text-center text-muted-foreground py-4"
+        data-testid="admin-approvals-empty-message" // Added data-testid
+      >
         No users awaiting approval.
       </p>
     );
@@ -104,7 +109,9 @@ export function ApprovalList({ users }: ApprovalListProps) {
   return (
     <div className="space-y-4">
       {users.map((user) => (
-        <Card key={user.id}>
+        <Card key={user.id} data-testid={`approval-card-${user.id}`}>
+          {" "}
+          {/* Added data-testid */}
           <CardHeader>
             <CardTitle className="text-lg">
               {user.firstName} {user.lastName}

@@ -83,7 +83,9 @@ export function WithdrawalRequestForm({
   }
 
   return (
-    <Card>
+    <Card data-testid="withdrawal-request-card">
+      {" "}
+      {/* Added data-testid */}
       <CardHeader>
         <CardTitle>Request Withdrawal</CardTitle>
       </CardHeader>
@@ -98,7 +100,10 @@ export function WithdrawalRequestForm({
                 </span>
               </p>
               {!pixKeySet && (
-                <p className="text-sm text-red-600">
+                <p
+                  className="text-sm text-red-600"
+                  data-testid="withdrawal-no-pix-warning" // Added data-testid
+                >
                   Warning: PIX Key not set in profile. You cannot request a
                   withdrawal.
                 </p>
@@ -118,6 +123,7 @@ export function WithdrawalRequestForm({
                       placeholder="e.g., 50.00"
                       {...field}
                       disabled={isSubmitting || !pixKeySet}
+                      data-testid="withdrawal-amount-input" // Added data-testid
                     />
                   </FormControl>
                   <FormDescription>
@@ -132,6 +138,7 @@ export function WithdrawalRequestForm({
               disabled={
                 isSubmitting || !pixKeySet || availableBalanceInCents <= 0
               }
+              data-testid="withdrawal-submit-button" // Added data-testid
             >
               {isSubmitting ? "Submitting..." : "Request Withdrawal"}
             </Button>

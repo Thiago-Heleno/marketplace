@@ -37,21 +37,25 @@ function isRateLimited(ip: string): { limited: boolean; resetTime?: number } {
 
 // Combined Middleware Function wrapped by NextAuth's auth handler
 export default auth(async (request: NextRequest) => {
-  // --- Rate Limiting ---
-  const ip = request.headers.get("x-forwarded-for") ?? "127.0.0.1";
-  const { limited, resetTime } = isRateLimited(ip);
+  // --- Rate Limiting (Conditional) ---
+  // Skip rate limiting if the E2E_TESTING environment variable is set to "true"
+  if (process.env.E2E_TESTING !== "true") {
+    const ip = request.headers.get("x-forwarded-for") ?? "127.0.0.1";
+    const { limited, resetTime } = isRateLimited(ip);
 
-  if (limited) {
-    console.warn(`Rate limit exceeded for IP: ${ip}`);
-    const headers: Record<string, string> = {};
-    if (resetTime) {
-      headers["Retry-After"] = Math.ceil(
-        (resetTime - Date.now()) / 1000
-      ).toString(); // Seconds until reset
-      headers["X-RateLimit-Reset"] = new Date(resetTime).toISOString();
+    if (limited) {
+      console.warn(`Rate limit exceeded for IP: ${ip}`);
+      const headers: Record<string, string> = {};
+      if (resetTime) {
+        headers["Retry-After"] = Math.ceil(
+          (resetTime - Date.now()) / 1000
+        ).toString(); // Seconds until reset
+        headers["X-RateLimit-Reset"] = new Date(resetTime).toISOString();
+      }
+      return new NextResponse("Too Many Requests", { status: 429, headers });
     }
-    return new NextResponse("Too Many Requests", { status: 429, headers });
   }
+  // --- End Conditional Rate Limiting Block ---
 
   // --- Authentication (handled by `auth()` wrapper) ---
   // If rate limit check passes, return undefined to let the `auth()` wrapper

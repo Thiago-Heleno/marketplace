@@ -73,7 +73,6 @@ export function WithdrawalManagementTable({
     null
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleAction = async (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     action: (id: string, ...args: any[]) => Promise<any>,
@@ -129,14 +128,22 @@ export function WithdrawalManagementTable({
         <TableBody>
           {requests.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={8} className="text-center">
+              <TableCell
+                colSpan={8}
+                className="text-center"
+                data-testid="admin-withdrawals-empty-message" // Added data-testid
+              >
                 No withdrawal requests found.
               </TableCell>
             </TableRow>
           ) : (
             requests.map((req) => (
-              <TableRow key={req.id}>
-                <TableCell>
+              <TableRow key={req.id} data-testid={`withdrawal-row-${req.id}`}>
+                {" "}
+                {/* Added data-testid */}
+                <TableCell data-testid={`withdrawal-email-cell-${req.id}`}>
+                  {" "}
+                  {/* Added data-testid */}
                   <div className="font-medium">
                     {req.user?.firstName} {req.user?.lastName}
                   </div>
@@ -144,7 +151,11 @@ export function WithdrawalManagementTable({
                     {req.user?.email}
                   </div>
                 </TableCell>
-                <TableCell>{formatPrice(req.amountInCents)}</TableCell>
+                <TableCell data-testid={`withdrawal-amount-cell-${req.id}`}>
+                  {" "}
+                  {/* Added data-testid */}
+                  {formatPrice(req.amountInCents)}
+                </TableCell>
                 <TableCell>{req.pixKeyUsed}</TableCell>
                 <TableCell>{formatDate(req.requestedAt)}</TableCell>
                 <TableCell>
@@ -158,6 +169,7 @@ export function WithdrawalManagementTable({
                             ? "outline"
                             : "destructive"
                     }
+                    data-testid={`withdrawal-status-cell-${req.id}`} // Added data-testid
                   >
                     {req.status}
                   </Badge>
@@ -180,6 +192,7 @@ export function WithdrawalManagementTable({
                             handleAction(approveWithdrawal, req.id)
                           }
                           disabled={isLoading[req.id]}
+                          data-testid={`withdrawal-approve-button-${req.id}`} // Added data-testid
                         >
                           {isLoading[req.id] ? "Approving..." : "Approve"}
                         </Button>
@@ -189,6 +202,7 @@ export function WithdrawalManagementTable({
                             size="sm"
                             onClick={() => setRejectingRequestId(req.id)}
                             disabled={isLoading[req.id]}
+                            data-testid={`withdrawal-reject-button-${req.id}`} // Added data-testid
                           >
                             Reject
                           </Button>
@@ -204,6 +218,7 @@ export function WithdrawalManagementTable({
                             handleAction(markWithdrawalPaid, req.id)
                           }
                           disabled={isLoading[req.id]}
+                          data-testid={`withdrawal-mark-paid-button-${req.id}`} // Added data-testid
                         >
                           {isLoading[req.id] ? "Marking..." : "Mark Paid"}
                         </Button>
@@ -213,6 +228,7 @@ export function WithdrawalManagementTable({
                             size="sm"
                             onClick={() => setRejectingRequestId(req.id)}
                             disabled={isLoading[req.id]}
+                            data-testid={`withdrawal-reject-button-${req.id}`} // Added data-testid (Duplicate ID, but context differs)
                           >
                             Reject
                           </Button>
@@ -252,6 +268,7 @@ export function WithdrawalManagementTable({
                 onChange={(e) => setRejectionReason(e.target.value)}
                 className="col-span-3"
                 placeholder="e.g., Insufficient completed orders"
+                data-testid="withdrawal-reject-dialog-reason-input" // Added data-testid
               />
             </div>
           </div>
@@ -264,6 +281,7 @@ export function WithdrawalManagementTable({
               disabled={
                 !rejectionReason.trim() || isLoading[rejectingRequestId || ""]
               }
+              data-testid="withdrawal-reject-dialog-confirm-button" // Added data-testid
             >
               Confirm Rejection
             </AlertDialogAction>

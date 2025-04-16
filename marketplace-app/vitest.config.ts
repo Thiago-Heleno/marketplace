@@ -7,7 +7,7 @@ export default defineConfig({
   test: {
     environment: "jsdom", // Simulates browser environment for DOM APIs [1, 5, 6]
     globals: true, // Makes describe, it, expect, vi globally available [1, 5, 6]
-    include: ["**/*.{test,spec}.?(c|m)[jt]s?(x)"], // Default pattern for test files [2, 6]
+    include: ["**/*.test.?(c|m)[jt]s?(x)"], // Only include *.test.ts(x), not *.spec.ts(x)
     setupFiles: ["./vitest.setup.ts"], // Specifies global setup file [1, 5, 6]
     server: {
       deps: {

@@ -91,14 +91,16 @@ export function ReviewForm({ productId }: ReviewFormProps) {
         <FormField
           control={form.control}
           name="rating"
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           render={(
-            { field } // Ensure comment is exactly here
+            { field } // Removed underscore, added eslint disable comment
           ) => (
             <FormItem>
               <FormLabel>Rating</FormLabel>
               <FormControl>
-                <div className="flex items-center gap-1">
+                <div
+                  className="flex items-center gap-1"
+                  data-testid="review-rating-stars" // Added data-testid
+                >
                   {Array.from({ length: 5 }).map((_, index) => {
                     const currentRating = index + 1;
                     return (
@@ -134,6 +136,7 @@ export function ReviewForm({ productId }: ReviewFormProps) {
                   {...field}
                   rows={4}
                   disabled={isLoading}
+                  data-testid="review-comment-textarea" // Added data-testid
                 />
               </FormControl>
               <FormMessage />
@@ -141,7 +144,11 @@ export function ReviewForm({ productId }: ReviewFormProps) {
           )}
         />
 
-        <Button type="submit" disabled={isLoading || rating === 0}>
+        <Button
+          type="submit"
+          disabled={isLoading || rating === 0}
+          data-testid="review-submit-button" // Added data-testid
+        >
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           Submit Review
         </Button>

@@ -72,12 +72,18 @@ export function AffiliateCodeDisplay({
       <CardContent className="space-y-4">
         {code ? (
           <div className="flex items-center space-x-2">
-            <Input value={code} readOnly className="font-mono text-lg" />
+            <Input
+              value={code}
+              readOnly
+              className="font-mono text-lg"
+              data-testid="affiliate-code-input" // Added data-testid
+            />
             <Button
               variant="outline"
               size="icon"
               onClick={handleCopyToClipboard}
               title="Copy to clipboard"
+              data-testid="copy-code-button" // Added data-testid
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +107,11 @@ export function AffiliateCodeDisplay({
             <p className="text-muted-foreground">
               You do not have an affiliate code yet.
             </p>
-            <Button onClick={handleGenerateCode} disabled={isLoading}>
+            <Button
+              onClick={handleGenerateCode}
+              disabled={isLoading}
+              data-testid="generate-code-button" // Added data-testid
+            >
               {isLoading ? "Generating..." : "Generate Code"}
             </Button>
           </div>

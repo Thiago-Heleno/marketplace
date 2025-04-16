@@ -31,7 +31,7 @@ import {
 
 export function ForgotPasswordForm() {
   const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | null>(null);
+  // Removed unused error state: const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
   const form = useForm<ForgotPasswordInput>({
@@ -42,7 +42,7 @@ export function ForgotPasswordForm() {
   });
 
   const onSubmit = (values: ForgotPasswordInput) => {
-    setError(null);
+    // Removed: setError(null);
     setSuccess(null);
 
     startTransition(async () => {
@@ -85,6 +85,7 @@ export function ForgotPasswordForm() {
                       placeholder="john.doe@example.com"
                       {...field}
                       disabled={isPending}
+                      data-testid="forgot-password-email-input" // Added data-testid
                     />
                   </FormControl>
                   <FormMessage />
@@ -94,7 +95,10 @@ export function ForgotPasswordForm() {
 
             {/* Display Success/Error Messages (only success shown for security) */}
             {success && (
-              <div className="p-3 rounded-md bg-green-50 border border-green-200 text-sm text-green-700">
+              <div
+                className="p-3 rounded-md bg-green-50 border border-green-200 text-sm text-green-700"
+                data-testid="forgot-password-success-message" // Added data-testid
+              >
                 {success}
               </div>
             )}
@@ -105,7 +109,12 @@ export function ForgotPasswordForm() {
               </div>
             )} */}
 
-            <Button type="submit" className="w-full" disabled={isPending}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isPending}
+              data-testid="forgot-password-submit-button" // Added data-testid
+            >
               {isPending ? "Sending..." : "Send Reset Link"}
             </Button>
             <div className="text-center text-sm">

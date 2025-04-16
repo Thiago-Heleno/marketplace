@@ -103,6 +103,7 @@ export function RegisterForm() {
                         placeholder="John"
                         {...field}
                         disabled={isPending}
+                        data-testid="register-firstname-input" // Added data-testid
                       />
                     </FormControl>
                     <FormMessage />
@@ -124,6 +125,7 @@ export function RegisterForm() {
                         placeholder="Doe"
                         {...field}
                         disabled={isPending}
+                        data-testid="register-lastname-input" // Added data-testid
                       />
                     </FormControl>
                     <FormMessage />
@@ -147,6 +149,7 @@ export function RegisterForm() {
                       placeholder="john.doe@example.com"
                       {...field}
                       disabled={isPending}
+                      data-testid="register-email-input" // Added data-testid
                     />
                   </FormControl>
                   <FormMessage />
@@ -169,6 +172,7 @@ export function RegisterForm() {
                       placeholder="********"
                       {...field}
                       disabled={isPending}
+                      data-testid="register-password-input" // Added data-testid
                     />
                   </FormControl>
                   <FormMessage />
@@ -191,7 +195,9 @@ export function RegisterForm() {
                     disabled={isPending}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger data-testid="register-role-select">
+                        {" "}
+                        {/* Added data-testid */}
                         <SelectValue placeholder="Select a role" />
                       </SelectTrigger>
                     </FormControl>
@@ -213,17 +219,28 @@ export function RegisterForm() {
 
             {/* Display Success/Error Messages */}
             {success && (
-              <div className="p-3 rounded-md bg-green-50 border border-green-200 text-sm text-green-700">
+              <div
+                className="p-3 rounded-md bg-green-50 border border-green-200 text-sm text-green-700"
+                data-testid="register-success-message" // Added data-testid
+              >
                 {success}
               </div>
             )}
             {error && (
-              <div className="p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700">
+              <div
+                className="p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700"
+                data-testid="register-error-message" // Added data-testid
+              >
                 {error}
               </div>
             )}
 
-            <Button type="submit" className="w-full" disabled={isPending}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isPending}
+              data-testid="register-submit-button" // Added data-testid
+            >
               {isPending ? "Registering..." : "Register"}
             </Button>
             <div className="text-center text-sm">

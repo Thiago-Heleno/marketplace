@@ -73,6 +73,7 @@ export function AddToCartButton({
       onClick={handleAddToCart}
       className="w-full mt-6"
       disabled={isDisabled}
+      data-testid="add-to-cart-button" // Added data-testid
     >
       {isDisabled
         ? isOutOfStock

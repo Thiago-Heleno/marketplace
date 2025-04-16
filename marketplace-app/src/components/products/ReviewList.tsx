@@ -45,7 +45,11 @@ export function ReviewList({ reviews }: ReviewListProps) {
   return (
     <div className="space-y-6">
       {reviews.map((review) => (
-        <div key={review.id} className="flex gap-4">
+        <div
+          key={review.id}
+          className="flex gap-4"
+          data-testid={`review-${review.id}`} // Added data-testid
+        >
           <Avatar className="h-10 w-10">
             {/* Placeholder for user image - replace with actual image if available */}
             {/* <AvatarImage src={review.user?.imageUrl} alt={`${review.user?.firstName} ${review.user?.lastName}`} /> */}

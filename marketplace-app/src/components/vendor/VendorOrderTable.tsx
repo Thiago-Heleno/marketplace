@@ -82,7 +82,12 @@ function OrderItemActions({ item }: { item: VendorOrderItem }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0" disabled={isPending}>
+        <Button
+          variant="ghost"
+          className="h-8 w-8 p-0"
+          disabled={isPending}
+          data-testid={`order-item-actions-trigger-${item.id}`} // Added data-testid
+        >
           <span className="sr-only">Open menu</span>
           {isPending ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -101,6 +106,8 @@ function OrderItemActions({ item }: { item: VendorOrderItem }) {
                 key={status}
                 onClick={() => handleStatusUpdate(status as OrderItemStatus)}
                 disabled={isPending}
+                // Add dynamic test id based on the action
+                data-testid={`order-item-${status.toLowerCase()}-${item.id}`}
               >
                 Mark as {formatStatus(status)}
               </DropdownMenuItem>
@@ -117,7 +124,10 @@ function OrderItemActions({ item }: { item: VendorOrderItem }) {
 export function VendorOrderTable({ orderItems }: VendorOrderTableProps) {
   if (!orderItems || orderItems.length === 0) {
     return (
-      <p className="text-center text-muted-foreground py-4">
+      <p
+        className="text-center text-muted-foreground py-4"
+        data-testid="vendor-orders-empty-message" // Added data-testid
+      >
         You have no order items yet.
       </p>
     );
@@ -139,7 +149,9 @@ export function VendorOrderTable({ orderItems }: VendorOrderTableProps) {
       </TableHeader>
       <TableBody>
         {orderItems.map((item) => (
-          <TableRow key={item.id}>
+          <TableRow key={item.id} data-testid={`order-item-row-${item.id}`}>
+            {" "}
+            {/* Added data-testid */}
             <TableCell className="font-medium truncate" title={item.orderId}>
               {item.order.id.substring(0, 8)}... {/* Shorten Order ID */}
             </TableCell>
@@ -171,6 +183,7 @@ export function VendorOrderTable({ orderItems }: VendorOrderTableProps) {
                     ? "default"
                     : "secondary"
                 }
+                data-testid={`order-item-status-badge-${item.id}`} // Added data-testid
               >
                 {formatStatus(item.status)}
               </Badge>

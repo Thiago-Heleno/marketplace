@@ -77,7 +77,12 @@ export function ProfileForm({ initialData }: ProfileFormProps) {
             <FormItem>
               <FormLabel>First Name</FormLabel>
               <FormControl>
-                <Input placeholder="John" {...field} disabled={isPending} />
+                <Input
+                  placeholder="John"
+                  {...field}
+                  disabled={isPending}
+                  data-testid="profile-firstname-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -90,7 +95,12 @@ export function ProfileForm({ initialData }: ProfileFormProps) {
             <FormItem>
               <FormLabel>Last Name</FormLabel>
               <FormControl>
-                <Input placeholder="Doe" {...field} disabled={isPending} />
+                <Input
+                  placeholder="Doe"
+                  {...field}
+                  disabled={isPending}
+                  data-testid="profile-lastname-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -108,6 +118,7 @@ export function ProfileForm({ initialData }: ProfileFormProps) {
                     placeholder="Your PIX key (e.g., email, CPF, phone)"
                     {...field}
                     disabled={isPending}
+                    data-testid="profile-pixkey-input" // Added data-testid
                   />
                 </FormControl>
                 <FormMessage />
@@ -115,7 +126,12 @@ export function ProfileForm({ initialData }: ProfileFormProps) {
             )}
           />
         )}
-        <Button type="submit" disabled={isPending} className="w-full">
+        <Button
+          type="submit"
+          disabled={isPending}
+          className="w-full"
+          data-testid="profile-save-button" // Added data-testid
+        >
           {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
           {isPending ? "Saving..." : "Save Changes"}
         </Button>

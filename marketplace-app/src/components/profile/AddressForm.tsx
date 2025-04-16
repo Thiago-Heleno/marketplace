@@ -82,7 +82,11 @@ export function AddressForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-4"
+        data-testid="address-form" // Added data-testid
+      >
         {/* Street */}
         <FormField
           control={form.control}
@@ -95,6 +99,7 @@ export function AddressForm({
                   placeholder="123 Main St"
                   {...field}
                   disabled={isPending}
+                  data-testid="address-street-input" // Added data-testid
                 />
               </FormControl>
               <FormMessage />
@@ -109,7 +114,12 @@ export function AddressForm({
             <FormItem>
               <FormLabel>City</FormLabel>
               <FormControl>
-                <Input placeholder="Anytown" {...field} disabled={isPending} />
+                <Input
+                  placeholder="Anytown"
+                  {...field}
+                  disabled={isPending}
+                  data-testid="address-city-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -123,7 +133,12 @@ export function AddressForm({
             <FormItem>
               <FormLabel>State / Province</FormLabel>
               <FormControl>
-                <Input placeholder="CA" {...field} disabled={isPending} />
+                <Input
+                  placeholder="CA"
+                  {...field}
+                  disabled={isPending}
+                  data-testid="address-state-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -137,7 +152,12 @@ export function AddressForm({
             <FormItem>
               <FormLabel>Postal Code</FormLabel>
               <FormControl>
-                <Input placeholder="90210" {...field} disabled={isPending} />
+                <Input
+                  placeholder="90210"
+                  {...field}
+                  disabled={isPending}
+                  data-testid="address-postalcode-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -151,14 +171,24 @@ export function AddressForm({
             <FormItem>
               <FormLabel>Country</FormLabel>
               <FormControl>
-                <Input placeholder="USA" {...field} disabled={isPending} />
+                <Input
+                  placeholder="USA"
+                  {...field}
+                  disabled={isPending}
+                  data-testid="address-country-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit" disabled={isPending} className="w-full">
+        <Button
+          type="submit"
+          disabled={isPending}
+          className="w-full"
+          data-testid="address-form-submit-button" // Added data-testid
+        >
           {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
           {isPending
             ? "Saving..."

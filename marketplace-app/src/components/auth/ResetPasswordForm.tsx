@@ -115,6 +115,7 @@ export function ResetPasswordForm({ token }: ResetPasswordFormProps) {
                       placeholder="********"
                       {...field}
                       disabled={isPending || !token || !!success} // Disable if no token or success
+                      data-testid="reset-password-password-input" // Added data-testid
                     />
                   </FormControl>
                   <FormMessage />
@@ -140,6 +141,7 @@ export function ResetPasswordForm({ token }: ResetPasswordFormProps) {
                       placeholder="********"
                       {...field}
                       disabled={isPending || !token || !!success} // Disable if no token or success
+                      data-testid="reset-password-confirm-input" // Added data-testid
                     />
                   </FormControl>
                   <FormMessage />
@@ -149,12 +151,18 @@ export function ResetPasswordForm({ token }: ResetPasswordFormProps) {
 
             {/* Display Success/Error Messages */}
             {success && (
-              <div className="p-3 rounded-md bg-green-50 border border-green-200 text-sm text-green-700">
+              <div
+                className="p-3 rounded-md bg-green-50 border border-green-200 text-sm text-green-700"
+                data-testid="reset-password-success-message" // Added data-testid
+              >
                 {success}
               </div>
             )}
             {error && (
-              <div className="p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700">
+              <div
+                className="p-3 rounded-md bg-red-50 border border-red-200 text-sm text-red-700"
+                data-testid="reset-password-error-message" // Added data-testid
+              >
                 {error}
               </div>
             )}
@@ -163,6 +171,7 @@ export function ResetPasswordForm({ token }: ResetPasswordFormProps) {
               type="submit"
               className="w-full"
               disabled={isPending || !token || !!success} // Disable if no token or success
+              data-testid="reset-password-submit-button" // Added data-testid
             >
               {isPending ? "Resetting..." : "Reset Password"}
             </Button>

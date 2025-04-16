@@ -77,7 +77,10 @@ export function AddressList({ addresses }: AddressListProps) {
       <div className="flex justify-end">
         <Dialog open={isAddModalOpen} onOpenChange={setIsAddModalOpen}>
           <DialogTrigger asChild>
-            <Button>Add New Address</Button>
+            <Button data-testid="add-new-address-button">
+              Add New Address
+            </Button>{" "}
+            {/* Added data-testid */}
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -89,13 +92,20 @@ export function AddressList({ addresses }: AddressListProps) {
       </div>
 
       {addresses.length === 0 ? (
-        <p className="text-center text-muted-foreground py-4">
+        <p
+          className="text-center text-muted-foreground py-4"
+          data-testid="address-list-empty-message" // Added data-testid
+        >
           You have no saved addresses.
         </p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {addresses.map((address) => (
-            <Card key={address.id} className="flex flex-col">
+            <Card
+              key={address.id}
+              className="flex flex-col"
+              data-testid={`address-card-${address.id}`} // Added data-testid
+            >
               <CardContent className="pt-6 flex-grow">
                 <p>{address.street}</p>
                 <p>
@@ -115,6 +125,7 @@ export function AddressList({ addresses }: AddressListProps) {
                       size="sm"
                       onClick={() => handleSetDefault(address.id)}
                       disabled={isSettingDefault === address.id}
+                      data-testid={`address-set-default-button-${address.id}`} // Added data-testid
                     >
                       {isSettingDefault === address.id ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -135,6 +146,7 @@ export function AddressList({ addresses }: AddressListProps) {
                         variant="outline"
                         size="icon"
                         onClick={() => openEditModal(address)}
+                        data-testid={`address-edit-button-${address.id}`} // Added data-testid
                       >
                         <Edit className="h-4 w-4" />
                         <span className="sr-only">Edit Address</span>
@@ -162,6 +174,7 @@ export function AddressList({ addresses }: AddressListProps) {
                         ? "Cannot delete default address"
                         : "Delete Address"
                     }
+                    data-testid={`address-delete-button-${address.id}`} // Added data-testid
                   >
                     {isDeleting === address.id ? (
                       <Loader2 className="h-4 w-4 animate-spin" />

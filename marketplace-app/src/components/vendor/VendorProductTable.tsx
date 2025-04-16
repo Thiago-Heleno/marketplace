@@ -114,7 +114,11 @@ const ProductActionsCell: React.FC<ProductActionsCellProps> = ({ row }) => {
   return (
     <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0">
+        <Button
+          variant="ghost"
+          className="h-8 w-8 p-0"
+          data-testid={`product-actions-trigger-${product.id}`} // Added data-testid
+        >
           <span className="sr-only">Open menu</span>
           <MoreHorizontal className="h-4 w-4" />
         </Button>
@@ -128,12 +132,16 @@ const ProductActionsCell: React.FC<ProductActionsCellProps> = ({ row }) => {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href={`/dashboard/vendor/products/edit/${product.id}`}>
+          <Link
+            href={`/dashboard/vendor/products/edit/${product.id}`}
+            data-testid={`product-edit-action-${product.id}`} // Added data-testid
+          >
             Edit
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem
           className="text-red-600 focus:text-red-700 focus:bg-red-100"
+          data-testid={`product-delete-action-${product.id}`} // Added data-testid
           onClick={(e: React.MouseEvent) => {
             // Added type for event
             e.preventDefault(); // Prevent menu closing immediately
@@ -249,6 +257,7 @@ export function VendorProductTable({ data }: VendorProductTableProps) {
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
+          data-testid="vendor-products-filter-input" // Added data-testid
         />
       </div>
       <div className="rounded-md border">
@@ -277,15 +286,35 @@ export function VendorProductTable({ data }: VendorProductTableProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  data-testid={`product-row-${row.original.id}`} // Added data-testid
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell) => {
+                    // Determine testId based on column
+                    let testId = undefined;
+                    const productId = row.original.id;
+                    switch (cell.column.id) {
+                      case "title":
+                        testId = `product-title-cell-${productId}`;
+                        break;
+                      case "isActive":
+                        testId = `product-status-cell-${productId}`;
+                        break;
+                      case "priceInCents":
+                        testId = `product-price-cell-${productId}`;
+                        break;
+                      case "stock":
+                        testId = `product-stock-cell-${productId}`;
+                        break;
+                    }
+                    return (
+                      <TableCell key={cell.id} data-testid={testId}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
             ) : (
@@ -293,6 +322,7 @@ export function VendorProductTable({ data }: VendorProductTableProps) {
                 <TableCell
                   colSpan={columns.length}
                   className="h-24 text-center"
+                  data-testid="vendor-products-empty-message" // Added data-testid
                 >
                   No products found.
                 </TableCell>

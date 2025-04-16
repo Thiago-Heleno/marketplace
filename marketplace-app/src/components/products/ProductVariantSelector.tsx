@@ -53,6 +53,7 @@ export function ProductVariantSelector({
           <Label
             key={variant.id}
             htmlFor={variant.id}
+            data-testid={`variant-option-${variant.id}`} // Added data-testid
             className={`flex cursor-pointer items-center justify-center rounded-md border px-4 py-2 text-sm font-medium hover:bg-accent ${
               selectedVariantId === variant.id
                 ? "bg-accent ring-2 ring-primary"

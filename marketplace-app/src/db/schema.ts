@@ -8,6 +8,7 @@ import {
   text,
   timestamp,
   uniqueIndex,
+  index, // <-- Add index import
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
@@ -143,8 +144,8 @@ export const products = pgTable(
   },
   (table) => {
     return {
-      vendorIdx: uniqueIndex("products_vendor_idx").on(table.vendorId),
-      categoryIdx: uniqueIndex("products_category_idx").on(table.categoryId),
+      // vendorIdx: uniqueIndex("products_vendor_idx").on(table.vendorId), // Removed incorrect unique index
+      // categoryIdx: uniqueIndex("products_category_idx").on(table.categoryId), // Removed incorrect unique index
       slugIdx: uniqueIndex("products_slug_idx").on(table.slug),
     };
   }
@@ -171,9 +172,16 @@ export const productVariants = pgTable(
   },
   (table) => {
     return {
-      productIdx: uniqueIndex("variants_product_idx").on(table.productId),
-      // Unique constraint for product + name + value? Maybe too strict?
-      // unique(table.productId, table.name, table.value)
+      // 1. REMOVE OR COMMENT OUT the incorrect unique index:
+      // productIdx: uniqueIndex("variants_product_idx").on(table.productId),
+
+      // 2. ADD a non-unique index for efficient lookups:
+      productRelationIdx: index("variants_product_relation_idx").on(
+        table.productId
+      ),
+
+      // 3. OPTIONAL: Add multi-column uniqueness if required (Uncomment if needed)
+      // productVariantUnique: unique("product_variant_unique_idx").on(table.productId, table.name, table.value),
     };
   }
 );
@@ -303,7 +311,10 @@ export const orders = pgTable(
   },
   (table) => {
     return {
-      userIdx: uniqueIndex("orders_user_idx").on(table.userId),
+      // Remove incorrect unique index on user ID (a user can have multiple orders)
+      // userIdx: uniqueIndex("orders_user_idx").on(table.userId),
+      // Add non-unique index for efficient lookup of user's orders
+      userRelationIdx: index("orders_user_relation_idx").on(table.userId),
       paymentIntentIdx: uniqueIndex("orders_stripe_pi_idx").on(
         table.stripePaymentIntentId
       ),
@@ -348,7 +359,12 @@ export const orderItems = pgTable(
       variantIdx: uniqueIndex("order_items_variant_idx").on(
         table.productVariantId
       ),
-      vendorIdx: uniqueIndex("order_items_vendor_idx").on(table.vendorId),
+      // Remove incorrect unique index on vendor ID (a vendor can have multiple items)
+      // vendorIdx: uniqueIndex("order_items_vendor_idx").on(table.vendorId),
+      // Add non-unique index for efficient lookup of vendor's items
+      vendorRelationIdx: index("order_items_vendor_relation_idx").on(
+        table.vendorId
+      ),
     };
   }
 );

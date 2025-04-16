@@ -128,7 +128,11 @@ export function ProductForm({
             <FormItem>
               <FormLabel>Product Title</FormLabel>
               <FormControl>
-                <Input placeholder="e.g., Amazing Widget" {...field} />
+                <Input
+                  placeholder="e.g., Amazing Widget"
+                  {...field}
+                  data-testid="product-title-input" // Added data-testid
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -147,6 +151,7 @@ export function ProductForm({
                   placeholder="Describe your product..."
                   className="resize-none"
                   {...field}
+                  data-testid="product-description-textarea" // Added data-testid
                 />
               </FormControl>
               <FormMessage />
@@ -166,6 +171,7 @@ export function ProductForm({
                   type="number"
                   placeholder="e.g., 1999 for $19.99"
                   {...field}
+                  data-testid="product-price-input" // Added data-testid
                 />
               </FormControl>
               <FormDescription>
@@ -184,7 +190,12 @@ export function ProductForm({
             <FormItem>
               <FormLabel>Stock Quantity</FormLabel>
               <FormControl>
-                <Input type="number" placeholder="e.g., 100" {...field} />
+                <Input
+                  type="number"
+                  placeholder="e.g., 100"
+                  {...field}
+                  data-testid="product-stock-input" // Added data-testid
+                />
               </FormControl>
               <FormDescription>
                 Overall stock count. Variants will have their own stock later.
@@ -203,7 +214,9 @@ export function ProductForm({
               <FormLabel>Category</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger data-testid="product-category-select">
+                    {" "}
+                    {/* Added data-testid */}
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
                 </FormControl>
@@ -231,7 +244,11 @@ export function ProductForm({
             <FormItem>
               <FormLabel>Tags</FormLabel>
               <FormControl>
-                <Input placeholder="e.g., widget, blue, useful" {...field} />
+                <Input
+                  placeholder="e.g., widget, blue, useful"
+                  {...field}
+                  data-testid="product-tags-input" // Added data-testid
+                />
               </FormControl>
               <FormDescription>
                 Comma-separated tags for search.
@@ -252,6 +269,7 @@ export function ProductForm({
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
+                    data-testid="product-physical-checkbox" // Added data-testid
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
@@ -272,6 +290,7 @@ export function ProductForm({
                   <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
+                    data-testid="product-digital-checkbox" // Added data-testid
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
@@ -296,6 +315,7 @@ export function ProductForm({
               type="file"
               accept="image/*"
               onChange={(e) => handleFileChange(e, setImageFile)}
+              data-testid="product-image-input" // Added data-testid
             />
           </FormControl>
           <FormDescription>
@@ -321,6 +341,7 @@ export function ProductForm({
                 type="file"
                 accept=".pdf,.zip" // Example accepted types
                 onChange={(e) => handleFileChange(e, setAssetFile)}
+                data-testid="product-asset-input" // Added data-testid
               />
             </FormControl>
             <FormDescription>
@@ -339,7 +360,11 @@ export function ProductForm({
 
         {/* TODO: Add Variant Management Section */}
 
-        <Button type="submit" disabled={isLoading}>
+        <Button
+          type="submit"
+          disabled={isLoading}
+          data-testid="product-form-submit-button" // Added data-testid
+        >
           {isLoading
             ? "Saving..."
             : initialData.id
